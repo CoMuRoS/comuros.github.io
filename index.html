@@ -19,6 +19,7 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#demo">Videos</a></li>
           <li><a href="#installation">Installation</a></li>
+          <li><a href="#usage">Tutorial</a></li>
           <li><a href="#dataset">Dataset</a></li>
           <li><a href="#publications">Paper</a></li>
         </ul>
@@ -44,27 +45,9 @@
         <div class="section-header">
           <h2 class="section-title">Experiment Videos</h2>
           <p class="section-subtitle">Watch CoMuRoS in action across hardware and simulation experiments</p>
-        </div>
-
-        <div class="video-grid">
-          <div class="video-item">
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/7QZDq5MSq1A" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="video-content">
-              <h4>Emergent Human-Multirobot collaboration when recovery from event is beyond capabilities of robots</h4>
-            </div>
-          </div>
-
-          <div class="video-item">
-            <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/7QZDq5MSq1A" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="video-content">
-              <h4>Formation of mobile robots and Robotic Arm collaborate to transport an object</h4>
-            </div>
-          </div>
-
+        </div>  
+        
+        <div class="video-grid-wrapper">
           <div class="video-item">
             <div class="video-wrapper">
               <iframe src="https://www.youtube.com/embed/9zOm0uG16YQ" frameborder="0" allowfullscreen></iframe>
@@ -73,6 +56,24 @@
               <h4>CoMuRoS Teaser Video</h4>
             </div>
           </div>
+  
+          <div class="video-item">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/7QZDq5MSq1A" frameborder="0" allowfullscreen></iframe>
+            </div>  
+            <div class="video-content">
+              <h4>Emergent Human-Multirobot collaboration when recovery from event is beyond capabilities of robots</h4>
+            </div>  
+          </div>  
+
+          <div class="video-item">
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/7QZDq5MSq1A" frameborder="0" allowfullscreen></iframe>
+            </div>  
+            <div class="video-content">
+              <h4>Formation of mobile robots and Robotic Arm collaborate to transport an object</h4>
+            </div>  
+          </div>  
 
           <div class="video-item">
             <div class="video-wrapper">
@@ -147,6 +148,36 @@
           <h2 class="section-title">Installation</h2>
           <p class="section-subtitle">Setup instructions for installing CoMuRoS Architecture</p>
         </div>
+        
+        <div class="step">
+          <h3>📋 Setup </h3>
+
+          <ul>
+            <li>ROS 2 <strong>Humble Hawksbill</strong> (LTS, recommended)</li>
+            <li>Ubuntu 22.04 (Jammy Jellyfish)</li>
+            <li>Python 3.10+ (default with Ubuntu 22.04)</li>
+            <li>Git</li>
+            <li>colcon build tool</li>
+          </ul>
+
+          <p><strong>Verify that ROS 2 is installed and sourced correctly:</strong></p>
+
+          <div class="code-block">
+            <pre><code># Check ROS 2 environment variables
+printenv | grep -i ROS
+
+# Expected output should include at least:
+# ROS_DISTRO=humble
+# ROS_VERSION=2
+# ROS_PYTHON_VERSION=3
+          </code></pre>
+        </div>
+
+        <p>
+          If <code>ROS_DISTRO=humble</code> is present, your ROS 2 environment is
+          correctly set up and ready for <strong>CoMuRoS</strong>.
+        </p>
+        </div>
 
         <div class="step">
           <h3>📥 Clone the Repository</h3>
@@ -155,19 +186,6 @@
             <pre><code>cd ~/ros2_ws/src
 git clone https://anonymous.4open.science/r/CoMuRoS-0242/ comuros
 cd ~/ros2_ws</code></pre>
-          </div>
-        </div>
-
-        <div class="step">
-          <h3>📋 Prerequisites</h3>
-          <ul>
-            <li>ROS 2 (Humble or Iron recommended)</li>
-            <li>Python 3.8+</li>
-            <li>Git</li>
-          </ul>
-          <p>Check your ROS 2 installation:</p>
-          <div class="code-block">
-            <pre><code>ros2 --version</code></pre>
           </div>
         </div>
 
@@ -210,12 +228,210 @@ export XAI_API_KEY="your_grok_key"</code></pre>
           <p>Advanced: run nodes individually for <code>chat_manager</code>, <code>task_manager</code>, and <code>chat_gui</code>.</p>
         </div>
 
-        <div class="step">
+        <!-- <div class="step">
           <h3>📄 Full Documentation</h3>
           <p>For detailed instructions and configuration examples, see the <a href="https://anonymous.4open.science/r/CoMuRoS-0242/" target="_blank" rel="noopener">README in the anonymous GitHub repository</a>.</p>
         </div>
+      </div> -->
+    </section>
+
+    <section id="usage" class="section">
+      <div class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">CoMuRoS Tutorial</h2>
+          <p class="section-subtitle">Complete guide to running the multi-robot system for custom applications</p>
+        </div>
+
+        <div class="step">
+          <h3>🚀 Running the Complete System</h3>
+          <p>The CoMuRoS system requires four separate terminals to run all components. Follow these steps in order:</p>
+        </div>
+
+        <div class="step">
+          <h3>Terminal 1: Launch Simulation Environment</h3>
+          <div class="code-block">
+            <pre><code>ros2 launch multi_robot multi_robot.launch.py</code></pre>
+          </div>
+          <p><strong>What it does:</strong></p>
+          <ul>
+            <li>Starts Ignition Gazebo with the food court environment</li>
+            <li>Spawns 3 robots with delays:
+              <ul>
+                <li><strong>r1</strong> (Cleaning Robot) at position (11.0, 0.0, 0.05) after 5 seconds</li>
+                <li><strong>r2</strong> (Delivery Robot) at position (0.0, 0.0, 0.05) after 15 seconds</li>
+                <li><strong>r3</strong> (Drone) at position (-1.0, 1.0, 0.05) after 25 seconds</li>
+              </ul>
+            </li>
+            <li>Sets up ROS-Gazebo bridge for /clock and /tf topics</li>
+            <li>Opens RViz for multi-robot visualization</li>
+          </ul>
+        </div>
+
+        <div class="step">
+          <h3>Terminal 2: Launch Robot LLM Interfaces</h3>
+          <div class="code-block">
+            <pre><code>ros2 launch robot_llm robot_llms.launch.py</code></pre>
+          </div>
+          <p><strong>What it does:</strong></p>
+          <ul>
+            <li>Starts LLM interface nodes for all robots:
+              <ul>
+                <li><code>cleaning_bot_llm_node</code> - Interprets commands for cleaning robot</li>
+                <li><code>delivery_bot_llm_node</code> - Interprets commands for delivery robot</li>
+                <li><code>drone_llm_node</code> - Interprets commands for the drone</li>
+              </ul>
+            </li>
+            <li>Each node subscribes to task messages from the chat system</li>
+            <li>Converts high-level natural language commands into robot-specific actions</li>
+          </ul>
+        </div>
+
+        <div class="step">
+          <h3>Terminal 3: Launch Robot Control Services</h3>
+          <div class="code-block">
+            <pre><code>ros2 launch robot_llm robot_services.launch.py</code></pre>
+          </div>
+          <p><strong>What it does:</strong></p>
+          <ul>
+            <li>Starts position controller services for each robot:
+              <ul>
+                <li><code>cleaning_bot_position_controller</code> (namespace: r1) - Holonomic controller</li>
+                <li><code>deliver_bot_position_controller</code> (namespace: r2) - Holonomic controller</li>
+                <li><code>drone_position_controller</code> (namespace: r3) - Drone flight controller</li>
+              </ul>
+            </li>
+            <li>Provides low-level motion control services</li>
+            <li>Executes movement commands and trajectories</li>
+          </ul>
+        </div>
+
+        <div class="step">
+          <h3>Terminal 4: Launch Chat Interface</h3>
+          <div class="code-block">  
+            <pre><code>ros2 launch chatty chat_system.launch.py</code></pre>
+          </div>
+          <p><strong>What it does:</strong></p>
+          <ul>
+            <li>Starts the natural language chat interface GUI</li>
+            <li>Launches chat manager for conversation history</li>
+            <li>Starts task manager to convert natural language to robot tasks using LLMs</li>
+            <li>Enables optional audio input/output (microphone and text-to-speech)</li>
+            <li>Publishes time information for task scheduling</li>
+          </ul>
+          <p><strong>Optional parameters:</strong></p>
+          <div class="code-block">
+            <pre><code># Use specific LLM model (default: 4)
+ros2 launch chatty chat_system.launch.py model:=1
+
+# Use custom robot configuration
+ros2 launch chatty chat_system.launch.py config_file:=robot_config_roscon_2025
+
+# Enable voice input/output
+ros2 launch chatty chat_system.launch.py enable_audio_input:=true enable_audio_output:=true</code></pre>
+          </div>
+        </div>
+
+
+        <div class="step">
+          <h3>💬 Example Commands</h3>
+          <p>Once all four terminals are running start commanding and interacting with multirobot system, for example:</p>
+          <ul>
+            <li>"Clean the place"</li>
+            <li>"Serve coke to the child"</li>
+            <li>"Which table is empty?"</li>
+          </ul>
+        </div>
+
+        <div class="step">
+          <h3>🏗️ Package Structure</h3>
+          <p>The CoMuRoS robot packages are organized as follows:</p>
+          <div class="code-block">
+            <pre><code>CoMuRoS/robots/
+├── multi_robot/          # Multi-robot simulation environment
+│   ├── launch/          # multi_robot.launch.py
+│   ├── env/             # Ignition resource paths
+│   ├── models/          # Food court assets
+│   ├── worlds/          # foodcourt_world.sdf
+│   └── rviz/            # Multi-robot RViz config
+│
+├── x3_uav/              # X3 UAV drone packages
+│   ├── x3_uav_description/
+│   ├── x3_uav_ignition/
+│   └── x3_uav_llm/
+│
+└── yahboom/             # Yahboom Rosmaster X3 ground robots
+    ├── yahboom_rosmaster_description/
+    ├── yahboom_rosmaster_gazebo/
+    └── yahboom_llm/</code></pre>
+          </div>
+        </div>
+
+        <div class="step">
+          <h3>🤖 Adding New Robots</h3>
+          <p>Want to add your own robot to the system? Follow these steps:</p>
+          
+          <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Step 1: Add Robot to Simulation</h4>
+          <p>Edit <code>multi_robot/launch/multi_robot.launch.py</code> and add your robot launch:</p>
+          <div class="code-block">
+            <pre><code>robot4_launch = TimerAction(
+    period=30.0,  # Spawn delay in seconds
+    actions=[
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(your_robot_launch_path),
+            launch_arguments={
+                'use_sim_time': use_sim_time,
+                'robot_name': 'your_robot_name',
+                'prefix': 'r4',
+                'spawn_x': '5.0',
+                'spawn_y': '5.0',
+                'spawn_z': '0.05',
+            }.items()
+        )
+    ]
+)</code></pre>
+          </div>
+          
+          <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Step 2: Create Robot Package Structure</h4>
+          <p>Create a new package with this structure:</p>
+          <div class="code-block">
+            <pre><code>your_robot_llm/
+├── data/
+│   ├── chat_history.txt
+│   └── robot_task_history.txt
+├── launch/
+├── package.xml
+├── setup.py
+└── your_robot_llm/
+    ├── __init__.py
+    ├── your_robot_llm.py
+    └── your_robot_services.py</code></pre>
+          </div>
+          
+          <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Step 3: Add LLM Node</h4>
+          <p>Edit <code>robot_llm/launch/robot_llms.launch.py</code> to include your robot's LLM interface node.</p>
+          
+          <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Step 4: Add Robot Service</h4>
+          <p>Edit <code>robot_llm/launch/robot_services.launch.py</code> to include your robot's position controller service.</p>
+          
+          <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Step 5: Update Robot Configuration</h4>
+          <p>Create or edit configuration files in <code>chatty/config/</code> with robot capabilities and initial state.</p>
+          
+          <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Step 6: Build and Test</h4>
+          <div class="code-block">
+            <pre><code>cd ~/ros2_ws
+colcon build --packages-select your_robot_llm
+source install/setup.bash
+
+# Test the new robot
+ros2 launch multi_robot multi_robot.launch.py
+ros2 launch robot_llm robot_llms.launch.py
+ros2 launch robot_llm robot_services.launch.py
+ros2 launch chatty chat_system.launch.py</code></pre>
+          </div>
+        </div>
       </div>
     </section>
+
 
     <!-- Dataset -->
     <section id="dataset" class="section">
@@ -224,31 +440,45 @@ export XAI_API_KEY="your_grok_key"</code></pre>
           <h2 class="section-title">Dataset</h2>
           <p class="section-subtitle">Benchmark for evaluating task planning and replanning</p>
         </div>
-        <p>
-          <a href="https://drive.google.com/drive/folders/1i6ZupC1dC3AuS4vKeeRPAZpVnoHiibIK?usp=drive_link" target="_blank" rel="noopener">Download Dataset (Google Drive)</a>
-        </p>
+        <div class="button-container">
+          <a href="https://drive.google.com/drive/folders/1i6ZupC1dC3AuS4vKeeRPAZpVnoHiibIK?usp=drive_link" 
+            class="dataset-button" 
+            target="_blank" 
+            rel="noopener">
+            Google Drive
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- Publications -->
-    <section id="publications" class="section">
-      <div class="content-section">
-        <div class="section-header">
-          <h2 class="section-title">Paper</h2>
-        </div>
-        <p>
-          <a href="Murogai4 (10).pdf" target="_blank" rel="noopener">Read the PDF</a>
-        </p>
-        <div class="code-block bibtex">
-          <pre><code>@article{comuros2026,
+<section id="publications" class="section">
+  <div class="content-section">
+    <div class="section-header">
+      <h2 class="section-title">Paper</h2>
+    </div>
+    
+    <div class="button-container">
+      <a href="CoMuRoS.pdf" 
+        class="paper-button" 
+        target="_blank" 
+        rel="noopener">
+        Read the PDF
+      </a>
+    </div>
+    <div class="bibtex-section">
+      <h3 class="bibtex-title">Citation</h3>
+      <div class="code-block">
+        <pre><code>@article{comuros2026,
   title   = {LLM-Based Generalizable Hierarchical Task Planning and Execution for Heterogeneous Robot Teams with Event-Driven Replanning},
   author  = {Anonymous},
   journal = {submitted to ICRA},
   year    = {2026}
 }</code></pre>
-        </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- Footer -->
     <footer class="footer">
