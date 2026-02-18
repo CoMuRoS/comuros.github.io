@@ -749,3 +749,33 @@ window.addEventListener('load', function() {
     
     setTimeout(() => announcement.remove(), 3000);
 });
+
+// ==========================================
+// EMAIL COPY FUNCTIONALITY
+// ==========================================
+function copyEmail(el) {
+  const email = el.querySelector('.email-text').textContent;
+  navigator.clipboard.writeText(email).then(() => {
+    const feedback = el.parentElement.querySelector('.copy-feedback');
+    const btn = el.querySelector('.copy-icon-btn');
+    btn.textContent = '✓ Copied';
+    feedback.classList.add('show');
+    setTimeout(() => {
+      btn.textContent = '⎘ Copy';
+      feedback.classList.remove('show');
+    }, 2000);
+  });
+}
+
+function copyAuthorEmail(el) {
+  const email = el.querySelector('span').textContent;
+  navigator.clipboard.writeText(email).then(() => {
+    const btn = el.querySelector('.email-copy-mini');
+    btn.textContent = '✓ Done';
+    btn.style.background = '#059669';
+    setTimeout(() => {
+      btn.textContent = 'Copy';
+      btn.style.background = '';
+    }, 2000);
+  });
+}

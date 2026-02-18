@@ -245,6 +245,40 @@ body {
   background: rgba(255, 255, 255, 0.2);
 }
 
+.hero-subtitle {
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  opacity: 0.9 !important;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem !important;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+.authors-list {
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  opacity: 0.85;
+  margin-bottom: 0.5rem;
+  margin-top: 0.25rem;
+  letter-spacing: 0.04em;
+  color: #93c5fd;
+}
+
+.affiliation {
+  font-size: 1.15rem !important;
+  font-weight: 800 !important;
+  opacity: 1 !important;
+  margin-bottom: 2.5rem !important;
+  margin-top: 0 !important;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(147, 197, 253, 0.8), 0 0 40px rgba(37, 99, 235, 0.5);
+}
+
 /* ==========================================
    CONTENT SECTIONS
    ========================================== */
@@ -1201,6 +1235,387 @@ body {
   border-color: var(--primary-color);
   box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
   transform: translateY(-2px);
+}
+
+/* ==========================================
+   AUTHORS SECTION
+   ========================================== */
+.authors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.author-card {
+  background: var(--background);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.author-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+}
+
+.author-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-color);
+}
+
+.author-photo-wrapper {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 1.25rem;
+  position: relative;
+}
+
+.author-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+}
+
+.author-avatar-fallback {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.75rem;
+  font-weight: 800;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.author-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.35rem;
+}
+
+.author-role {
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: var(--primary-color) !important;
+  margin-bottom: 0.25rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.author-dept {
+  font-size: 0.82rem !important;
+  color: var(--text-light) !important;
+  margin-bottom: 0.75rem !important;
+  line-height: 1.4;
+}
+
+/* ---- Link Pills ---- */
+.author-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.author-link {
+  padding: 0.4rem 0.85rem;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+}
+
+.author-link.linkedin {
+  background: #dbeafe;
+  border-color: #93c5fd;
+  color: #1e40af;
+}
+
+.author-link.github {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  color: #111827;
+}
+
+.author-link.scholar {
+  background: #f0fdf4;
+  border-color: #86efac;
+  color: #166534;
+}
+
+.author-link.website {
+  background: #faf5ff;
+  border-color: #d8b4fe;
+  color: #6b21a8;
+}
+
+/* Hovers */
+.author-link.linkedin:hover {
+  background: #2563eb;
+  border-color: #1d4ed8;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+.author-link.github:hover {
+  background: #111827;
+  border-color: #111827;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(17, 24, 39, 0.35);
+}
+
+.author-link.scholar:hover {
+  background: #16a34a;
+  border-color: #15803d;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.35);
+}
+
+.author-link.website:hover {
+  background: #7c3aed;
+  border-color: #6d28d9;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.35);
+}
+
+/* ---- Copyable Email Bar ---- */
+.author-email-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0f172a;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.85rem;
+  cursor: pointer;
+  border: 1px solid #334155;
+  transition: all 0.3s ease;
+  gap: 0.5rem;
+}
+
+.author-email-display:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.author-email-display span {
+  color: #93c5fd;
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: 0.72rem;
+  user-select: all;
+  text-align: left;
+  word-break: break-all;
+}
+
+.email-copy-mini {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.2rem 0.55rem;
+  border-radius: 5px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.email-copy-mini:hover {
+  background: var(--primary-dark);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .authors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .authors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .author-links {
+    gap: 0.35rem;
+  }
+
+  .author-link {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.7rem;
+  }
+}
+
+/* ==========================================
+   CONTACT SECTION
+   ========================================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.contact-card {
+  background: var(--background-gray);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.contact-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+}
+
+.contact-card p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.email-copy-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0f172a;
+  border-radius: 10px;
+  padding: 0.85rem 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #334155;
+  gap: 1rem;
+}
+
+.email-copy-box:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.email-text {
+  color: #e2e8f0;
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: 0.9rem;
+  user-select: all;
+}
+
+.copy-icon-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.35rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.copy-icon-btn:hover {
+  background: var(--primary-dark);
+}
+
+.copy-feedback {
+  display: block;
+  color: var(--success-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  height: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.copy-feedback.show {
+  opacity: 1;
+}
+
+.contact-link-btn {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.contact-link-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
+}
+
+.contact-single {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.contact-single .contact-card {
+  max-width: 480px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Responsive */

@@ -22,6 +22,8 @@
           <li><a href="#usage">Tutorial</a></li>
           <li><a href="#dataset">Dataset</a></li>
           <li><a href="#publications">Paper</a></li>
+          <li><a href="#authors">Authors</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -30,7 +32,8 @@
     <section id="home" class="section home">
       <div class="hero-content">
         <h1>CoMuRoS</h1>
-        <p>Collaborative Multi-Robot System for Generalizable Task Planning, Event-Driven Replanning, and Human–Robot Collaboration</p>
+        <p class="hero-subtitle">Collaborative Multi-Robot System for Generalizable Task Planning, Event-Driven Replanning, and Human-Robot Collaboration</p>        <p class="authors-list">Suraj Borate · Bhavish Rai B · Vipul Pardeshi · Madhu Vadali</p>
+        <p class="affiliation">IIT Gandhinagar</p>
         <a href="#demo" class="cta-button">Watch Experiments</a>
         <div style="margin-top: 2rem">
           <a href="https://anonymous.4open.science/r/CoMuRoS-0242/" class="cta-button secondary" target="_blank">View Repository</a>
@@ -459,7 +462,7 @@ ros2 launch chatty chat_system.launch.py</code></pre>
     </div>
     
     <div class="button-container">
-      <a href="CoMuRoS.pdf" 
+      <a href="https://arxiv.org/pdf/2511.22354" 
         class="paper-button" 
         target="_blank" 
         rel="noopener">
@@ -469,12 +472,127 @@ ros2 launch chatty chat_system.launch.py</code></pre>
     <div class="bibtex-section">
       <h3 class="bibtex-title">Citation</h3>
       <div class="code-block">
-        <pre><code>@article{comuros2026,
-  title   = {LLM-Based Generalizable Hierarchical Task Planning and Execution for Heterogeneous Robot Teams with Event-Driven Replanning},
-  author  = {Anonymous},
-  journal = {submitted to ICRA},
-  year    = {2026}
+        <pre><code>@article{borate2025llm,
+  title={LLM-Based Generalizable Hierarchical Task Planning and Execution for Heterogeneous Robot Teams with Event-Driven Replanning},
+  author={Borate, Suraj and Pardeshi, Vipul and Vadali, Madhu and others},
+  journal={arXiv preprint arXiv:2511.22354},
+  year={2025}
 }</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Authors -->
+<section id="authors" class="section">
+  <div class="content-section">
+    <div class="section-header">
+      <h2 class="section-title">Authors</h2>
+      <p class="section-subtitle">The team behind CoMuRoS</p>
+    </div>
+    <div class="authors-grid">
+
+      <div class="author-card">
+        <div class="author-photo-wrapper">
+          <img src="./images/suraj.png" alt="Suraj Borate" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="author-avatar-fallback">SB</div>
+        </div>
+        <h3>Suraj Borate</h3>
+        <p class="author-role">PhD Student</p>
+        <p class="author-dept">IIT Gandhinagar</p>
+        <div class="author-links">
+          <a href="https://linkedin.com/in/suraj-borate-72576323a" class="author-link linkedin" target="_blank">LinkedIn</a>
+          <a href="https://github.com/SurajBorate" class="author-link github" target="_blank">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=Sn-GirkAAAAJ&hl=en&oi=ao" class="author-link scholar" target="_blank">Scholar</a>
+          <!-- <a href="https://surajborate.com" class="author-link website" target="_blank">Website</a> -->
+        </div>
+        <div class="author-email-display" onclick="copyAuthorEmail(this)" title="Click to copy">
+          <span>surajb@iitgn.ac.in</span>
+          <button class="email-copy-mini">Copy</button>
+        </div>
+      </div>
+
+      <div class="author-card">
+        <div class="author-photo-wrapper">
+          <img src="./images/bhavish.png" alt="Bhavish Rai B" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="author-avatar-fallback">BR</div>
+        </div>
+        <h3>Bhavish Rai B</h3>
+        <p class="author-role">Intern</p>
+        <p class="author-dept">IIT Gandhinagar</p>
+        <div class="author-links">
+          <a href="https://linkedin.com/in/bhavish-rai-b-761421231" class="author-link linkedin" target="_blank">LinkedIn</a>
+          <a href="https://github.com/braib" class="author-link github" target="_blank">GitHub</a>
+          <!-- <a href="https://scholar.google.com/citations?user=XXXX" class="author-link scholar" target="_blank">Scholar</a> -->
+          <a href="https://braib.github.io" class="author-link website" target="_blank">Website</a>
+        </div>
+        <div class="author-email-display" onclick="copyAuthorEmail(this)" title="Click to copy">
+          <span>bhavishraib@gmail.com</span>
+          <button class="email-copy-mini">Copy</button>
+        </div>
+      </div>
+
+      <div class="author-card">
+        <div class="author-photo-wrapper">
+          <img src="./images/vipul.png" alt="Vipul Pardeshi" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="author-avatar-fallback">VP</div>
+        </div>
+        <h3>Vipul Pardeshi</h3>
+        <p class="author-role">Intern</p>
+        <p class="author-dept">IIT Gandhinagar</p>
+        <div class="author-links">
+          <a href="https://www.linkedin.com/in/vipul-pardeshi-028b7a22a/" class="author-link linkedin" target="_blank">LinkedIn</a>
+          <a href="https://github.com/Vipsy-123/" class="author-link github" target="_blank">GitHub</a>
+          <!-- <a href="https://scholar.google.com/citations?user=XXXX" class="author-link scholar" target="_blank">Scholar</a> -->
+          <!-- <a href="https://vipulpardeshi.com" class="author-link website" target="_blank">Website</a> -->
+        </div>
+        <div class="author-email-display" onclick="copyAuthorEmail(this)" title="Click to copy">
+          <span>pardeshivipul18@gmail.com</span>
+          <button class="email-copy-mini">Copy</button>
+        </div>
+      </div>
+
+      <div class="author-card">
+        <div class="author-photo-wrapper">
+          <img src="./images/madhu.jpg" alt="Madhu Vadali" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="author-avatar-fallback">MV</div>
+        </div>
+        <h3>Madhu Vadali</h3>
+        <p class="author-role">Professor</p>
+        <p class="author-dept">IIT Gandhinagar</p>
+        <div class="author-links">
+          <a href="https://linkedin.com/in/madhuvadali" class="author-link linkedin" target="_blank">LinkedIn</a>
+          <!-- <a href="https://github.com/madhuvadali" class="author-link github" target="_blank">GitHub</a> -->
+          <a href="https://scholar.google.com/citations?user=kxNm_3sAAAAJ&hl=en" class="author-link scholar" target="_blank">Scholar</a>
+          <a href="https://iitgn.ac.in/faculty/me/9-madhu" class="author-link website" target="_blank">Website</a>
+        </div>
+        <div class="author-email-display" onclick="copyAuthorEmail(this)" title="Click to copy">
+          <span>madhu.vadali@iitgn.ac.in</span>
+          <button class="email-copy-mini">Copy</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="section">
+  <div class="content-section">
+    <div class="section-header">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">Have questions about CoMuRoS? We'd love to hear from you</p>
+    </div>
+    <div class="contact-single">
+      <div class="contact-card">
+        <!-- <div class="contact-icon">📧</div> -->
+        <h3>CoMuRoS</h3>
+        <p>For research inquiries and collaborations</p>
+        <div class="email-copy-box" onclick="copyEmail(this)" title="Click to copy">
+          <span class="email-text">comuros.research@gmail.com</span>
+          <button class="copy-icon-btn">⎘ Copy</button>
+        </div>
+        <span class="copy-feedback">✓ Copied to clipboard!</span>
       </div>
     </div>
   </div>
@@ -487,7 +605,7 @@ ros2 launch chatty chat_system.launch.py</code></pre>
         <a href="#dataset">Dataset</a>
         <a href="#publications">Paper</a>
       </div>
-      <p>&copy; 2026 CoMuRoS Project. Anonymous project page for peer review.</p>
+      <p>&copy; 2026 CoMuRoS Project.</p>
     </footer>
 
     <script src="js/script.js"></script>
