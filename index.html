@@ -71,7 +71,7 @@
 
           <div class="video-item">
             <div class="video-wrapper">
-              <iframe src="https://www.youtube.com/embed/7QZDq5MSq1A" frameborder="0" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/UtOMZBV_mUQ" frameborder="0" allowfullscreen></iframe>
             </div>  
             <div class="video-content">
               <h4>Formation of mobile robots and Robotic Arm collaborate to transport an object</h4>
@@ -153,7 +153,7 @@
         </div>
         
         <div class="step">
-          <h3>📋 Setup </h3>
+          <h3>Setup </h3>
 
           <ul>
             <li>ROS 2 <strong>Humble Hawksbill</strong> (LTS, recommended)</li>
@@ -183,7 +183,7 @@ printenv | grep -i ROS
         </div>
 
         <div class="step">
-          <h3>📥 Clone the Repository</h3>
+          <h3>Clone the Repository</h3>
           <p>Clone the anonymous repository into your ROS 2 workspace:</p>
           <div class="code-block">
             <pre><code>cd ~/ros2_ws/src
@@ -193,7 +193,7 @@ cd ~/ros2_ws</code></pre>
         </div>
 
         <div class="step">
-          <h3>⚙️ Install Dependencies</h3>
+          <h3>Install Dependencies</h3>
           <div class="code-block">
             <pre><code>rosdep install --from-paths src --ignore-src -r -y
 cd src/comuros
@@ -202,7 +202,7 @@ pip install -r requirements.txt</code></pre>
         </div>
 
         <div class="step">
-          <h3>🚀 Build the Package</h3>
+          <h3>Build the Package</h3>
           <div class="code-block">
             <pre><code>cd ~/ros2_ws
 colcon build --symlink-install
@@ -212,7 +212,7 @@ echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc</code></pre>
         </div>
 
         <div class="step">
-          <h3>🔐 Set API Keys</h3>
+          <h3>Set API Keys</h3>
           <p>You need at least one API key (OpenAI, Gemini, or XAI/Grok). Add them temporarily:</p>
           <div class="code-block">
             <pre><code>export OPENAI_API_KEY="your_openai_key"
@@ -223,7 +223,7 @@ export XAI_API_KEY="your_grok_key"</code></pre>
         </div>
 
         <div class="step">
-          <h3>🎯 Run the System</h3>
+          <h3>Run the System</h3>
           <p>Recommended: launch everything at once:</p>
           <div class="code-block">
             <pre><code>ros2 launch chatty chat_system.launch.py</code></pre>
@@ -232,7 +232,7 @@ export XAI_API_KEY="your_grok_key"</code></pre>
         </div>
 
         <!-- <div class="step">
-          <h3>📄 Full Documentation</h3>
+          <h3>Full Documentation</h3>
           <p>For detailed instructions and configuration examples, see the <a href="https://anonymous.4open.science/r/CoMuRoS-0242/" target="_blank" rel="noopener">README in the anonymous GitHub repository</a>.</p>
         </div>
       </div> -->
@@ -246,7 +246,7 @@ export XAI_API_KEY="your_grok_key"</code></pre>
         </div>
 
         <div class="step">
-          <h3>🚀 Running the Complete System</h3>
+          <h3>Running the Complete System</h3>
           <p>The CoMuRoS system requires four separate terminals to run all components. Follow these steps in order:</p>
         </div>
 
@@ -336,7 +336,7 @@ ros2 launch chatty chat_system.launch.py enable_audio_input:=true enable_audio_o
 
 
         <div class="step">
-          <h3>💬 Example Commands</h3>
+          <h3>Example Commands</h3>
           <p>Once all four terminals are running start commanding and interacting with multirobot system, for example:</p>
           <ul>
             <li>"Clean the place"</li>
@@ -346,7 +346,7 @@ ros2 launch chatty chat_system.launch.py enable_audio_input:=true enable_audio_o
         </div>
 
         <div class="step">
-          <h3>🏗️ Package Structure</h3>
+          <h3>Package Structure</h3>
           <p>The CoMuRoS robot packages are organized as follows:</p>
           <div class="code-block">
             <pre><code>CoMuRoS/robots/
@@ -370,7 +370,7 @@ ros2 launch chatty chat_system.launch.py enable_audio_input:=true enable_audio_o
         </div>
 
         <div class="step">
-          <h3>🤖 Adding New Robots</h3>
+          <h3>Adding New Robots</h3>
           <p>Want to add your own robot to the system? Follow these steps:</p>
           
           <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Step 1: Add Robot to Simulation</h4>
