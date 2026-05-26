@@ -109,7 +109,7 @@ body {
   width: 100%;
 }
 
-/* Mobile menu button — created dynamically by JS */
+/* Mobile menu button - created dynamically by JS */
 .mobile-menu-btn {
   display: none;
   background: none;
@@ -841,7 +841,7 @@ section.section-alt > .content-section {
 }
 
 /* ==========================================
-   SCROLL ANIMATIONS — unified fade-in-up
+   SCROLL ANIMATIONS - unified fade-in-up
    All interactive cards and sections use the
    same animation so the site feels consistent.
    ========================================== */
@@ -1240,7 +1240,7 @@ section.section-alt > .content-section {
   margin: 0;
 }
 
-/* FIX: HTML uses .ds-close-btn but CSS had .ds-modal-close — unified here */
+/* FIX: HTML uses .ds-close-btn but CSS had .ds-modal-close - unified here */
 .ds-close-btn {
   background: #1e293b;
   border: 1px solid #334155;
@@ -1310,7 +1310,7 @@ section.section-alt > .content-section {
   display: block;
 }
 
-/* FIX: HTML uses .ds-nav-btn but CSS had .lb-arr — unified here */
+/* FIX: HTML uses .ds-nav-btn but CSS had .lb-arr - unified here */
 .ds-nav-btn {
   flex-shrink: 0;
   width: 40px;

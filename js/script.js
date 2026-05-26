@@ -28,7 +28,7 @@ function throttle(func, limit) {
 }
 
 // ==========================================
-// NAVBAR + ACTIVE NAV — single throttled listener
+// NAVBAR + ACTIVE NAV - single throttled listener
 // ==========================================
 const handleScroll = throttle(function () {
   const navbar = document.querySelector('.navbar');
@@ -81,7 +81,7 @@ function createScrollToTopButton() {
 createScrollToTopButton();
 
 // ==========================================
-// FADE-IN ON SCROLL — covers every element type consistently
+// FADE-IN ON SCROLL - covers every element type consistently
 // ==========================================
 const fadeInObserver = new IntersectionObserver(function (entries) {
   entries.forEach(entry => {
@@ -286,37 +286,55 @@ const handleResize = (function () {
 window.addEventListener('resize', handleResize);
 
 // ==========================================
-// DATA SECTION — CONFIG FILES & GUI IMAGES
+// DATA SECTION - CONFIG FILES & GUI IMAGES
 // ==========================================
 const CONFIG_EXPERIMENT_NAMES = {
-  "robot_config_hospital_robots.json":            "Hospital Robot Operations",
-  "robot_config_disaster.json":                   "Disaster Relief Mission",
-  "robot_config_restaurant.json":                 "Restaurant Service",
-  "robot_config_warehouse.json":                  "Warehouse Logistics",
-  "robot_config_building_construction.json":      "Building Construction",
-  "robot_config_roscon_2025.json":                "ROSCon 2025 Demo",
-  "robot_config_hardware_experiment.json":        "Hardware Experiment",
-  "robot_config_coordination.json":               "Multi-Robot Coordination",
-  "robot_config_home.json":                       "Home Assistance",
-  "robot_config_hotel.json":                      "Hotel Service",
-  "robot_config_museum.json":                     "Museum Guide",
-  "robot_config_university_campus.json":          "University Campus",
-  "robot_config_smart_farming_system.json":       "Smart Farming",
-  "robot_config_space_station.json":              "Space Station",
-  "robot_config_fire_detection_and_control.json": "Fire Detection & Control",
-  "robot_config_mine_detection.json":             "Mine Detection",
+    "robot_config_coordination3.json":              "Formation Object Transport",
+    "robot_config_hardware_experiment.json":        "Hardware Experiment",
+    "robot_config_hospital_robots.json":            "Hospital Robot Operations",
+    "robot_config_disaster.json":                   "Disaster Relief Mission",
+    "robot_config_warehouse.json":                  "Warehouse Logistics",
+    "robot_config_building_construction.json":      "Building Construction",
+    "robot_config_home.json":                       "Home Assistance",
+    "robot_config_hotel.json":                      "Hotel Service",
+    "robot_config_museum.json":                     "Museum Guide",
+    "robot_config_university_campus.json":          "University Campus",
+    "robot_config_smart_farming_system.json":       "Smart Farming",
+    "robot_config_space_station.json":              "Space Station",
+    "robot_config_fire_detection_and_control.json": "Fire Detection & Control",
+    "robot_config_mine_detection.json":             "Mine Detection",
+    "robot_config_airport_baggage_handling.json":   "Airport Baggage Handling",
+    "robot_config_asteroid_mining.json":            "Asteroid Mining",
+    "robot_config_beach_clean.json":                "Beach Cleaning",
+    "robot_config_border_patrol.json":              "Border Patrol",
+    "robot_config_car_wash.json":                   "Car Wash",
+    "robot_config_convenience_store.json":          "Convenience Store",
+    "robot_config_crop_monitoring.json":            "Crop Monitoring",
+    "robot_config_cruise_ship.json":                "Cruise Ship",
+    "robot_config_data_center.json":                "Data Centre",
+    "robot_config_garden_maintenance.json":         "Garden Maintenance",
+    "robot_config_installing_solar_panel.json":     "Solar Panel Installation",
+    "robot_config_library_management.json":         "Library Management",
+    "robot_config_office_file_transporter.json":    "Office File Transporter",
+    "robot_config_port_operations.json":            "Port Operation",
+    "robot_config_reforestoration.json":            "Reforestation",
+    "robot_config_school_robot_assistance.json":    "School Robot Assistance",
+    "robot_config_space_station.json":              "Space Station",
+    "robot_config_water_park.json":                 "Water Park",
+    "robot_config_zoo.json":                        "Zoo Maintenance",
+    "robot_config_warehouse_rearrangement.json":    "Warehouse Management"
 };
 
 const GUI_EXPERIMENTS = {
-  "Disaster Relief — Normal":     ["DISASTER-NORMAL1.png","DISASTER-NORMAL2.png","DISASTER-NORMAL3.png","DISASTER-NORMAL4.png"],
-  "Disaster Relief — Event":      ["DISASTER-EVENT1.png","DISASTER-EVENT2.png","DISASTER-EVENT3.png","DISASTER-EVENT4.png"],
-  "Formation Control — Normal":   ["FORMATION-NORMAL.png"],
-  "Formation Control — Human":    ["FORMATION-HUMAN.png"],
-  "Object Detection — Normal":    ["GREEN_OBJ-NORMAL.png"],
-  "Object Detection — No Resume": ["GREEN_OBJ-NO_RESUME.png"],
-  "Object Detection — Resume":    ["GREEN_OBJ-RESUME.png"],
-  "Hospital — Normal":            ["HOSPITAL_NORMAL.png"],
-  "Hospital — Event Triggered":   ["HOSPITAL-EVENT.png"],
+    "Formation Object Transport":   ["FORMATION-NORMAL.png"],
+    "Formation Object Transport - Human Collaboration":    ["FORMATION-HUMAN.png"],
+    "Irrelevant Event Ignored":    ["GREEN_OBJ-NORMAL.png"],
+    // "Object Detection - No Resume": ["GREEN_OBJ-NO_RESUME.png"],
+    "Emergent Multirobot Co-operation":    ["GREEN_OBJ-RESUME.png"],
+    "Hospital Food Delivery ":            ["HOSPITAL_NORMAL.png"],
+    "Hospital - Event Triggered":   ["HOSPITAL-EVENT.png"],
+    "Disaster Relief - Normal":     ["DISASTER-NORMAL1.png","DISASTER-NORMAL2.png","DISASTER-NORMAL3.png","DISASTER-NORMAL4.png"],
+    "Disaster Relief - Event":      ["DISASTER-EVENT1.png","DISASTER-EVENT2.png","DISASTER-EVENT3.png","DISASTER-EVENT4.png"],
 };
 
 const CONFIG_BASE = "assets/config_files/";
@@ -454,7 +472,7 @@ function renderGuiCards() {
 }
 
 function openImgModal(expName, images) {
-  lbImages = images.map((img, i) => ({ src: GUI_BASE + img, alt: `${expName} — ${i + 1}` }));
+  lbImages = images.map((img, i) => ({ src: GUI_BASE + img, alt: `${expName} - ${i + 1}` }));
   lbIndex  = 0;
   document.getElementById('img-modal-exp').textContent = expName;
   updateLbSlide();
