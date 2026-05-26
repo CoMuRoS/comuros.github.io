@@ -1,0 +1,99 @@
+{
+  "robot_names": [
+    "drone",
+    "robot_dog_with_spade",
+    "differential_drive_robot_with_sprinkler"
+  ],
+
+  "robot_capabilities": {
+    "drone": "Can move from location A to B by flying. Equipped with depth camera, standard camera, lidar, thermal camera, and GPS. Can detect objects or areas from the air. Can map terrain and locate planting zones. Cannot manipulate objects directly. Suitable for finding objects or locations and seeding areas using a seed dispenser.",
+
+    "robot_dog_with_spade": "Can walk and run on land, climb, crawl, and jump. Equipped with depth camera, standard camera, lidar, thermal sensor, GPS, and a spade tool. Capable of digging holes for planting. Can find and reach locations by walking across rough terrain. Suitable for digging holes in rocky, grassy, or uneven forest terrain for seed placement.",
+
+    "differential_drive_robot_with_sprinkler": "Moves on land using wheels. Can operate in open flat or semi-flat terrain. Equipped with depth camera, standard camera, GPS, and a water-spraying system. Capable of watering plants in assigned regions. Can locate and navigate to target areas after identifying them. Responsible for watering newly planted areas in accessible terrain."
+  },
+
+  "robot_morphology": {
+    "drone": "Drive Type: Quadrotor Aerial Robot, Radius: 0.35 m, Payload: ~4 kg (max ~6 kg), Mobility: Holonomic Flying Robot, Flight Endurance: ~30 min",
+
+    "robot_dog_with_spade": "Drive Type: Quadruped Legged Robot, Radius: 0.50 m, Payload: ~6 kg (max ~10 kg), Mobility: Rough Terrain Locomotion, Tool: Front-Mounted Spade",
+
+    "differential_drive_robot_with_sprinkler": "Drive Type: Differential Drive, Radius: 0.45 m, Payload: ~10 kg (max ~15 kg), Mobility: Non-holonomic Ground Robot, Feature: Onboard Sprinkler System"
+  },
+
+  "robot_states": {
+    "drone": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "vertical_state": "Landed",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+
+    "robot_dog_with_spade": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "pose_state": "Standing",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+
+    "differential_drive_robot_with_sprinkler": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "mobility_state": "Stationary",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    }
+  },
+
+  "path_planner": {
+    "drone": {
+      "radius": 0.35,
+      "max_linear_velocity_x": 5.0,
+      "max_linear_velocity_y": 5.0,
+      "max_angular_velocity_z": 2.0,
+      "max_acceleration": 3.0,
+      "max_angular_acceleration": 3.0,
+      "colour": "blue",
+      "type": "Quadrotor Aerial Robot"
+    },
+
+    "robot_dog_with_spade": {
+      "radius": 0.50,
+      "max_linear_velocity_x": 3.0,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 1.5,
+      "max_acceleration": 2.0,
+      "max_angular_acceleration": 2.5,
+      "colour": "brown",
+      "type": "Quadruped Legged Robot"
+    },
+
+    "differential_drive_robot_with_sprinkler": {
+      "radius": 0.45,
+      "max_linear_velocity_x": 2.0,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 1.2,
+      "max_acceleration": 1.5,
+      "max_angular_acceleration": 2.0,
+      "colour": "green",
+      "type": "Differential Drive Robot"
+    }
+  },
+
+  "task_specific_rules": [
+    "All robots should pause work when animals are detected nearby.",
+    "Water spraying must only happen after seed planting is completed.",
+    "Robots should coordinate dynamically during multi-robot forest restoration tasks."
+  ],
+
+  "task_replanning_rules": [
+    "Do NOT assume that a robot has completed a task when an event is triggered. Reassess based on current state.",
+    "Robots must replan routes when terrain becomes inaccessible or unsafe.",
+    "Nearest available robot should assist if another robot fails or becomes blocked."
+  ]
+}

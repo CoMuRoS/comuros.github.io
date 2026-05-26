@@ -20,7 +20,7 @@
           <li><a href="#demo">Videos</a></li>
           <li><a href="#installation">Installation</a></li>
           <li><a href="#usage">Tutorial</a></li>
-          <li><a href="#dataset">Dataset</a></li>
+          <li><a href="#dataset">Data</a></li>
           <li><a href="#publications">Paper</a></li>
           <li><a href="#comuros-nav">CoMuRoS-Nav</a></li>
           <li><a href="#authors">Authors</a></li>
@@ -437,23 +437,109 @@ ros2 launch chatty chat_system.launch.py</code></pre>
     </section>
 
 
-    <!-- Dataset -->
-    <section id="dataset" class="section">
-      <div class="content-section">
-        <div class="section-header">
-          <h2 class="section-title">Dataset</h2>
-          <p class="section-subtitle">Benchmark for evaluating task planning and replanning</p>
+<!-- Data -->
+<section id="dataset" class="section">
+  <div class="content-section">
+    <div class="section-header">
+      <h2 class="section-title">Data</h2>
+      <p class="section-subtitle">Robot configuration files and experiment GUI screenshots</p>
+    </div>
+
+    <!-- Sub-section: Config Files -->
+    <div class="data-subsection">
+      <div class="data-sub-header">
+        <div>
+          <h3 class="data-sub-title">
+            <i class="ti ti-file-code" aria-hidden="true"></i>
+            Config Files
+          </h3>
+          <p class="data-sub-desc">Robot configuration files for each experiment. Click a card to read the full JSON.</p>
         </div>
-        <div class="button-container">
-          <a href="https://drive.google.com/drive/folders/1i6ZupC1dC3AuS4vKeeRPAZpVnoHiibIK?usp=drive_link" 
-            class="dataset-button" 
-            target="_blank" 
-            rel="noopener">
-            Google Drive
-          </a>
+        <div class="scroller-arrows" id="cfg-arrows">
+          <button class="scroll-arrow" onclick="scrollTrack('cfg-track', -1)" aria-label="Scroll left"><i class="ti ti-chevron-left"></i></button>
+          <button class="scroll-arrow" onclick="scrollTrack('cfg-track', 1)"  aria-label="Scroll right"><i class="ti ti-chevron-right"></i></button>
         </div>
       </div>
-    </section>
+
+      <div class="cards-track-wrap">
+        <div class="cards-track" id="cfg-track">
+          <!-- populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="data-divider"></div>
+
+    <!-- Sub-section: Chat GUI Images -->
+    <div class="data-subsection">
+      <div class="data-sub-header">
+        <div>
+          <h3 class="data-sub-title">
+            <i class="ti ti-photo" aria-hidden="true"></i>
+            Chat GUI Screenshots
+          </h3>
+          <p class="data-sub-desc">Interface screenshots from real experiment runs. Click to view full size.</p>
+        </div>
+        <div class="scroller-arrows" id="gui-arrows">
+          <button class="scroll-arrow" onclick="scrollTrack('gui-track', -1)" aria-label="Scroll left"><i class="ti ti-chevron-left"></i></button>
+          <button class="scroll-arrow" onclick="scrollTrack('gui-track', 1)"  aria-label="Scroll right"><i class="ti ti-chevron-right"></i></button>
+        </div>
+      </div>
+
+      <div class="cards-track-wrap">
+        <div class="cards-track" id="gui-track">
+          <!-- populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Keep original dataset button -->
+    <div class="data-divider"></div>
+    <div class="button-container" style="padding-top: 2rem;">
+      <a href="https://drive.google.com/drive/folders/1i6ZupC1dC3AuS4vKeeRPAZpVnoHiibIK?usp=drive_link"
+        class="dataset-button"
+        target="_blank"
+        rel="noopener">
+        Google Drive
+      </a>
+    </div>
+
+  </div>
+
+  <!-- JSON Modal -->
+  <div class="ds-backdrop" id="json-backdrop" onclick="closeJsonModal()">
+    <div class="ds-modal json-ds-modal" onclick="event.stopPropagation()">
+      <div class="ds-modal-header">
+        <div>
+          <p class="ds-modal-title" id="json-modal-exp"></p>
+          <p class="ds-modal-sub"   id="json-modal-file"></p>
+        </div>
+        <button class="ds-modal-close" onclick="closeJsonModal()" aria-label="Close"><i class="ti ti-x"></i></button>
+      </div>
+      <pre class="ds-json-body" id="json-modal-body"></pre>
+    </div>
+  </div>
+
+  <!-- Image Modal -->
+  <div class="ds-backdrop" id="img-backdrop" onclick="closeImgModal()">
+    <div class="ds-modal img-ds-modal" onclick="event.stopPropagation()">
+      <div class="ds-modal-header">
+        <p class="ds-modal-title" id="img-modal-exp"></p>
+        <button class="ds-modal-close" onclick="closeImgModal()" aria-label="Close"><i class="ti ti-x"></i></button>
+      </div>
+      <div class="img-modal-body">
+        <button class="lb-arr lb-arr-l" id="lb-prev" onclick="lbStep(-1)" aria-label="Previous"><i class="ti ti-chevron-left"></i></button>
+        <div class="lb-img-wrap">
+          <img id="lb-img" src="" alt="" />
+        </div>
+        <button class="lb-arr lb-arr-r" id="lb-next" onclick="lbStep(1)"  aria-label="Next"><i class="ti ti-chevron-right"></i></button>
+      </div>
+      <p class="lb-caption" id="lb-caption"></p>
+    </div>
+  </div>
+
+</section>
 
     <!-- Publications -->
 <section id="publications" class="section">
@@ -513,7 +599,7 @@ ros2 launch chatty chat_system.launch.py</code></pre>
 
       <div class="author-card">
         <div class="author-photo-wrapper">
-          <img src="./images/suraj.png" alt="Suraj Borate" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="./assets/images/team/suraj.png" alt="Suraj Borate" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="author-avatar-fallback">SB</div>
         </div>
         <h3>Suraj Borate</h3>
@@ -533,7 +619,7 @@ ros2 launch chatty chat_system.launch.py</code></pre>
 
       <div class="author-card">
         <div class="author-photo-wrapper">
-          <img src="./images/bhavish.png" alt="Bhavish Rai B" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="./assets/images/team/bhavish.png" alt="Bhavish Rai B" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="author-avatar-fallback">BR</div>
         </div>
         <h3>Bhavish Rai B</h3>
@@ -553,7 +639,7 @@ ros2 launch chatty chat_system.launch.py</code></pre>
 
       <div class="author-card">
         <div class="author-photo-wrapper">
-          <img src="./images/vipul.png" alt="Vipul Pardeshi" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="./assets/images/team/vipul.png" alt="Vipul Pardeshi" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="author-avatar-fallback">VP</div>
         </div>
         <h3>Vipul Pardeshi</h3>
@@ -573,7 +659,7 @@ ros2 launch chatty chat_system.launch.py</code></pre>
 
       <div class="author-card">
         <div class="author-photo-wrapper">
-          <img src="./images/madhu.jpg" alt="Madhu Vadali" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="./assets/images/team/madhu.jpg" alt="Madhu Vadali" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="author-avatar-fallback">MV</div>
         </div>
         <h3>Madhu Vadali</h3>

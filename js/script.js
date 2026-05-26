@@ -724,6 +724,236 @@ document.querySelectorAll('.section').forEach(section => {
 });
 
 // ==========================================
+// DATA SECTION — CONFIG FILES & GUI IMAGES
+// ==========================================
+
+// --- EDIT THESE MAPPINGS ---
+// Only files listed here will be shown. Remove an entry to hide it.
+const CONFIG_EXPERIMENT_NAMES = {
+  "robot_config_hospital_robots.json":            "Hospital Robot Operations",
+  "robot_config_disaster.json":                   "Disaster Relief Mission",
+  "robot_config_restaurant.json":                 "Restaurant Service",
+  "robot_config_warehouse.json":                  "Warehouse Logistics",
+  "robot_config_building_construction.json":      "Building Construction",
+  "robot_config_roscon_2025.json":                "ROSCon 2025 Demo",
+  "robot_config_hardware_experiment.json":        "Hardware Experiment",
+  "robot_config_coordination.json":               "Multi-Robot Coordination",
+  "robot_config_home.json":                       "Home Assistance",
+  "robot_config_hotel.json":                      "Hotel Service",
+  "robot_config_museum.json":                     "Museum Guide",
+  "robot_config_university_campus.json":          "University Campus",
+  "robot_config_smart_farming_system.json":       "Smart Farming",
+  "robot_config_space_station.json":              "Space Station",
+  "robot_config_fire_detection_and_control.json": "Fire Detection & Control",
+  "robot_config_mine_detection.json":             "Mine Detection",
+};
+
+// Each experiment key maps to one or more image filenames
+const GUI_EXPERIMENTS = {
+  "Disaster Relief — Normal":       ["DISASTER-NORMAL1.png","DISASTER-NORMAL2.png","DISASTER-NORMAL3.png","DISASTER-NORMAL4.png"],
+  "Disaster Relief — Event":        ["DISASTER-EVENT1.png","DISASTER-EVENT2.png","DISASTER-EVENT3.png","DISASTER-EVENT4.png"],
+  "Formation Control — Normal":     ["FORMATION-NORMAL.png"],
+  "Formation Control — Human":      ["FORMATION-HUMAN.png"],
+  "Object Detection — Normal":      ["GREEN_OBJ-NORMAL.png"],
+  "Object Detection — No Resume":   ["GREEN_OBJ-NO_RESUME.png"],
+  "Object Detection — Resume":      ["GREEN_OBJ-RESUME.png"],
+  "Hospital — Normal":              ["HOSPITAL_NORMAL.png"],
+  "Hospital — Event Triggered":     ["HOSPITAL-EVENT.png"],
+};
+
+const CONFIG_BASE = "assets/config_files/";
+const GUI_BASE    = "assets/images/chat_gui/";
+const CARD_W      = 260; // px, card width for scroll step
+
+// ---- Lightbox state ----
+let lbImages = [], lbIndex = 0;
+
+// ==========================================
+// HORIZONTAL SCROLL
+// ==========================================
+function scrollTrack(trackId, dir) {
+  const track = document.getElementById(trackId);
+  if (!track) return;
+  track.scrollBy({ left: dir * (CARD_W + 20) * 2, behavior: 'smooth' });
+}
+
+// ==========================================
+// CONFIG CARDS
+// ==========================================
+function renderConfigCards() {
+  const track = document.getElementById('cfg-track');
+  if (!track) return;
+
+  Object.entries(CONFIG_EXPERIMENT_NAMES).forEach(([file, expName]) => {
+    const card = document.createElement('div');
+    card.className = 'ds-card cfg-card';
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', 'View ' + expName);
+
+    // Placeholder preview text — will be replaced after fetch
+    card.innerHTML = `
+      <div class="cfg-card-top">
+        <span class="cfg-card-badge"><i class="ti ti-braces" aria-hidden="true"></i> JSON</span>
+        <p class="cfg-card-name">${expName}</p>
+        <p class="cfg-card-file">${file}</p>
+      </div>
+      <pre class="cfg-card-preview" data-file="${file}">Loading preview…</pre>
+      <div class="cfg-card-footer">
+        <span>Click to view full content</span>
+        <i class="ti ti-arrow-up-right" aria-hidden="true"></i>
+      </div>
+    `;
+
+    card.addEventListener('click', () => openJsonModal(file, expName));
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openJsonModal(file, expName); });
+    track.appendChild(card);
+
+    // Fetch and show preview
+    fetch(CONFIG_BASE + file)
+      .then(r => r.json())
+      .then(json => {
+        const preview = card.querySelector('.cfg-card-preview');
+        const lines = JSON.stringify(json, null, 2).split('\n').slice(0, 14).join('\n');
+        preview.textContent = lines + '\n…';
+        preview.dataset.full = JSON.stringify(json, null, 2);
+      })
+      .catch(() => {
+        card.querySelector('.cfg-card-preview').textContent = '{ … }';
+      });
+  });
+}
+
+async function openJsonModal(file, expName) {
+  document.getElementById('json-modal-exp').textContent  = expName;
+  document.getElementById('json-modal-file').textContent = file;
+  document.getElementById('json-modal-body').textContent = 'Loading…';
+  document.getElementById('json-backdrop').classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  // Try to reuse already-fetched data from card
+  const card = [...document.querySelectorAll('.cfg-card')].find(c =>
+    c.querySelector('.cfg-card-file') && c.querySelector('.cfg-card-file').textContent === file
+  );
+  const preview = card && card.querySelector('.cfg-card-preview');
+  if (preview && preview.dataset.full) {
+    document.getElementById('json-modal-body').textContent = preview.dataset.full;
+    return;
+  }
+
+  try {
+    const res  = await fetch(CONFIG_BASE + file);
+    const json = await res.json();
+    document.getElementById('json-modal-body').textContent = JSON.stringify(json, null, 2);
+  } catch (e) {
+    document.getElementById('json-modal-body').textContent = 'Could not load:\n' + CONFIG_BASE + file;
+  }
+}
+
+function closeJsonModal() {
+  document.getElementById('json-backdrop').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ==========================================
+// GUI IMAGE CARDS
+// ==========================================
+function renderGuiCards() {
+  const track = document.getElementById('gui-track');
+  if (!track) return;
+
+  Object.entries(GUI_EXPERIMENTS).forEach(([expName, images]) => {
+    const card = document.createElement('div');
+    card.className = 'ds-card gui-card';
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', 'View ' + expName);
+
+    const count = images.length;
+
+    // Stacked thumbnails preview for multi-image, single for one
+    const stackHtml = count > 1
+      ? `<div class="gui-stack">
+           ${images.slice(0, 3).map((img, i) => `
+             <img src="${GUI_BASE + img}" alt="" class="gui-stack-img gui-stack-img-${i}" loading="lazy" />
+           `).join('')}
+           ${count > 3 ? `<div class="gui-stack-more">+${count - 3}</div>` : ''}
+         </div>`
+      : `<div class="gui-single-wrap">
+           <img src="${GUI_BASE + images[0]}" alt="${expName}" class="gui-single-img" loading="lazy" />
+         </div>`;
+
+    card.innerHTML = `
+      ${stackHtml}
+      <div class="gui-card-info">
+        <p class="gui-card-name">${expName}</p>
+        <span class="gui-card-count">
+          <i class="ti ti-photo" aria-hidden="true"></i>
+          ${count} image${count > 1 ? 's' : ''}
+        </span>
+      </div>
+      <div class="cfg-card-footer">
+        <span>Click to view</span>
+        <i class="ti ti-arrow-up-right" aria-hidden="true"></i>
+      </div>
+    `;
+
+    card.addEventListener('click', () => openImgModal(expName, images));
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openImgModal(expName, images); });
+    track.appendChild(card);
+  });
+}
+
+function openImgModal(expName, images) {
+  lbImages = images.map((img, i) => ({ src: GUI_BASE + img, alt: `${expName} — ${i + 1}` }));
+  lbIndex  = 0;
+  document.getElementById('img-modal-exp').textContent = expName;
+  updateLbSlide();
+  document.getElementById('img-backdrop').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeImgModal() {
+  document.getElementById('img-backdrop').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function lbStep(dir) {
+  lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+  updateLbSlide();
+}
+
+function updateLbSlide() {
+  document.getElementById('lb-img').src        = lbImages[lbIndex].src;
+  document.getElementById('lb-img').alt        = lbImages[lbIndex].alt;
+  document.getElementById('lb-caption').textContent = `${lbIndex + 1} / ${lbImages.length}`;
+  document.getElementById('lb-prev').style.visibility = lbImages.length > 1 ? 'visible' : 'hidden';
+  document.getElementById('lb-next').style.visibility = lbImages.length > 1 ? 'visible' : 'hidden';
+}
+
+// ==========================================
+// KEYBOARD
+// ==========================================
+document.addEventListener('keydown', e => {
+  if (document.getElementById('img-backdrop').classList.contains('active')) {
+    if (e.key === 'ArrowLeft')  lbStep(-1);
+    if (e.key === 'ArrowRight') lbStep(1);
+    if (e.key === 'Escape')     closeImgModal();
+  }
+  if (document.getElementById('json-backdrop').classList.contains('active')) {
+    if (e.key === 'Escape') closeJsonModal();
+  }
+});
+
+// ==========================================
+// INIT
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+  renderConfigCards();
+  renderGuiCards();
+});
+
+// ==========================================
 // FINAL INITIALIZATION
 // ==========================================
 console.log('CoMuRoS website loaded successfully!');

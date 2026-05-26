@@ -1,0 +1,359 @@
+{
+  "robot_names": [
+    "drone",
+    "robot_dog_with_arm",
+    "differential_drive_robot_with_arm",
+    "tower_crane_robot",
+    "autonomous_dump_truck",
+    "concrete_pouring_robot",
+    "wall_painting_robot",
+    "welding_robot",
+    "excavator_robot",
+    "inspection_humanoid_robot",
+    "bricklaying_robot",
+    "rebar_tying_robot",
+    "glass_installation_robot",
+    "roof_inspection_drone",
+    "cement_transport_robot",
+    "forklift_robot",
+    "scaffolding_assembly_robot",
+    "pipe_installation_robot",
+    "electrical_wiring_robot",
+    "floor_cleaning_robot",
+    "material_sorting_robot",
+    "demolition_robot",
+    "tile_installation_robot",
+    "window_cleaning_robot",
+    "safety_monitoring_robot"
+  ],
+
+  "robot_capabilities": {
+    "drone": "Performs aerial inspection, mapping, monitoring, and lightweight tool delivery.",
+    "robot_dog_with_arm": "Traverses rough terrain and manipulates tools or heavy materials using robotic arm.",
+    "differential_drive_robot_with_arm": "Handles precise manipulation and material transport on flat terrain.",
+    "tower_crane_robot": "Lifts and transports extremely heavy construction materials vertically and horizontally.",
+    "autonomous_dump_truck": "Carries sand, gravel, debris, and bulk materials across construction zones.",
+    "concrete_pouring_robot": "Automates concrete pouring and leveling operations.",
+    "wall_painting_robot": "Paints interior and exterior walls autonomously.",
+    "welding_robot": "Performs welding of steel structures and support frames.",
+    "excavator_robot": "Excavates foundations, trenches, and clears debris.",
+    "inspection_humanoid_robot": "Performs safety inspections, reads control panels, and interacts with workers.",
+    "bricklaying_robot": "Automatically places and aligns bricks for wall construction.",
+    "rebar_tying_robot": "Detects and ties reinforcement bars for concrete structures.",
+    "glass_installation_robot": "Installs glass panels and aligns facade structures safely.",
+    "roof_inspection_drone": "Inspects roofs, elevated platforms, and detects structural defects.",
+    "cement_transport_robot": "Carries cement bags and supplies between storage and work zones.",
+    "forklift_robot": "Lifts and transports palletized construction materials.",
+    "scaffolding_assembly_robot": "Assists in assembling and stabilizing scaffolding structures.",
+    "pipe_installation_robot": "Places and aligns plumbing pipes in building infrastructure.",
+    "electrical_wiring_robot": "Routes electrical cables and assists in wiring installation.",
+    "floor_cleaning_robot": "Cleans debris, dust, and loose materials from work areas.",
+    "material_sorting_robot": "Sorts construction materials, tools, and reusable debris.",
+    "demolition_robot": "Breaks walls, removes damaged structures, and clears hazardous debris.",
+    "tile_installation_robot": "Places and aligns floor and wall tiles precisely.",
+    "window_cleaning_robot": "Cleans high-rise windows and glass surfaces.",
+    "safety_monitoring_robot": "Monitors worker safety, detects hazards, and issues alerts."
+  },
+
+  "robot_morphology": {
+    "drone": "Quadrotor aerial robot, payload 4 kg, flight endurance 25 min.",
+    "robot_dog_with_arm": "Quadruped robot with robotic arm and rough terrain locomotion.",
+    "differential_drive_robot_with_arm": "Differential drive mobile manipulator for flat terrain.",
+    "tower_crane_robot": "Fixed heavy-duty crane system with 1000 kg lifting capacity.",
+    "autonomous_dump_truck": "Heavy-duty wheeled transport vehicle for construction materials.",
+    "concrete_pouring_robot": "Tracked robot with concrete dispensing arm.",
+    "wall_painting_robot": "Wall-climbing or lift-assisted painting robot.",
+    "welding_robot": "Industrial mobile welding manipulator.",
+    "excavator_robot": "Tracked excavation vehicle with digging bucket.",
+    "inspection_humanoid_robot": "Bipedal humanoid inspection robot.",
+    "bricklaying_robot": "Autonomous brick placement manipulator robot.",
+    "rebar_tying_robot": "Compact robotic arm system for reinforcement work.",
+    "glass_installation_robot": "Vacuum-assisted glass handling robot.",
+    "roof_inspection_drone": "High-altitude aerial inspection drone.",
+    "cement_transport_robot": "Autonomous load-carrying ground robot.",
+    "forklift_robot": "Autonomous forklift system with pallet handling.",
+    "scaffolding_assembly_robot": "Mobile robotic system with scaffold alignment tools.",
+    "pipe_installation_robot": "Tracked manipulator robot for pipe placement.",
+    "electrical_wiring_robot": "Compact robot for cable routing and installation.",
+    "floor_cleaning_robot": "Autonomous cleaning and sweeping robot.",
+    "material_sorting_robot": "Sorting robot with conveyor and robotic arm.",
+    "demolition_robot": "Heavy-duty demolition platform with impact tools.",
+    "tile_installation_robot": "Precision floor tiling robot.",
+    "window_cleaning_robot": "Vertical climbing cleaning robot.",
+    "safety_monitoring_robot": "Mobile monitoring robot with cameras and sensors."
+  },
+
+  "robot_states": {
+    "drone": {
+      "mode": "Idle",
+      "battery_state": "Full"
+    },
+    "robot_dog_with_arm": {
+      "mode": "Idle",
+      "battery_state": "Full"
+    },
+    "differential_drive_robot_with_arm": {
+      "mode": "Idle",
+      "battery_state": "Full"
+    },
+    "tower_crane_robot": {
+      "mode": "Idle",
+      "power_state": "Active"
+    },
+    "autonomous_dump_truck": {
+      "mode": "Idle",
+      "battery_state": "Full"
+    },
+    "concrete_pouring_robot": {
+      "mode": "Idle",
+      "tank_state": "Full"
+    },
+    "wall_painting_robot": {
+      "mode": "Idle",
+      "paint_state": "Loaded"
+    },
+    "welding_robot": {
+      "mode": "Idle",
+      "welding_state": "Inactive"
+    },
+    "excavator_robot": {
+      "mode": "Idle",
+      "fuel_state": "Full"
+    },
+    "inspection_humanoid_robot": {
+      "mode": "Idle",
+      "battery_state": "Full"
+    },
+    "bricklaying_robot": {
+      "mode": "Idle",
+      "material_state": "Loaded"
+    },
+    "rebar_tying_robot": {
+      "mode": "Idle",
+      "tool_state": "Ready"
+    },
+    "glass_installation_robot": {
+      "mode": "Idle",
+      "vacuum_state": "Inactive"
+    },
+    "roof_inspection_drone": {
+      "mode": "Idle",
+      "battery_state": "Full"
+    },
+    "cement_transport_robot": {
+      "mode": "Idle",
+      "carry_state": "Empty"
+    },
+    "forklift_robot": {
+      "mode": "Idle",
+      "fork_state": "Lowered"
+    },
+    "scaffolding_assembly_robot": {
+      "mode": "Idle",
+      "assembly_state": "Inactive"
+    },
+    "pipe_installation_robot": {
+      "mode": "Idle",
+      "pipe_state": "Empty"
+    },
+    "electrical_wiring_robot": {
+      "mode": "Idle",
+      "wire_state": "Loaded"
+    },
+    "floor_cleaning_robot": {
+      "mode": "Idle",
+      "cleaning_state": "Inactive"
+    },
+    "material_sorting_robot": {
+      "mode": "Idle",
+      "sorting_state": "Inactive"
+    },
+    "demolition_robot": {
+      "mode": "Idle",
+      "hammer_state": "Inactive"
+    },
+    "tile_installation_robot": {
+      "mode": "Idle",
+      "tile_state": "Loaded"
+    },
+    "window_cleaning_robot": {
+      "mode": "Idle",
+      "cleaning_fluid_state": "Full"
+    },
+    "safety_monitoring_robot": {
+      "mode": "Idle",
+      "alert_state": "Monitoring"
+    }
+  },
+
+  "path_planner": {
+    "drone": {
+      "radius": 0.35,
+      "max_linear_velocity_x": 6.0,
+      "colour": "blue",
+      "type": "Aerial Robot"
+    },
+    "robot_dog_with_arm": {
+      "radius": 0.50,
+      "max_linear_velocity_x": 2.5,
+      "colour": "brown",
+      "type": "Quadruped Robot"
+    },
+    "differential_drive_robot_with_arm": {
+      "radius": 0.45,
+      "max_linear_velocity_x": 1.5,
+      "colour": "green",
+      "type": "Differential Drive Robot"
+    },
+    "tower_crane_robot": {
+      "radius": 4.0,
+      "max_linear_velocity_x": 0.0,
+      "colour": "yellow",
+      "type": "Fixed Crane Robot"
+    },
+    "autonomous_dump_truck": {
+      "radius": 1.2,
+      "max_linear_velocity_x": 4.0,
+      "colour": "orange",
+      "type": "Heavy Vehicle Robot"
+    },
+    "concrete_pouring_robot": {
+      "radius": 0.8,
+      "max_linear_velocity_x": 1.0,
+      "colour": "gray",
+      "type": "Tracked Robot"
+    },
+    "wall_painting_robot": {
+      "radius": 0.5,
+      "max_linear_velocity_x": 0.8,
+      "colour": "purple",
+      "type": "Wall Climbing Robot"
+    },
+    "welding_robot": {
+      "radius": 0.6,
+      "max_linear_velocity_x": 1.0,
+      "colour": "red",
+      "type": "Industrial Robot"
+    },
+    "excavator_robot": {
+      "radius": 1.5,
+      "max_linear_velocity_x": 1.8,
+      "colour": "black",
+      "type": "Excavation Robot"
+    },
+    "inspection_humanoid_robot": {
+      "radius": 0.4,
+      "max_linear_velocity_x": 1.2,
+      "colour": "white",
+      "type": "Humanoid Robot"
+    },
+    "bricklaying_robot": {
+      "radius": 0.5,
+      "max_linear_velocity_x": 0.8,
+      "colour": "dark_red",
+      "type": "Bricklaying Robot"
+    },
+    "rebar_tying_robot": {
+      "radius": 0.4,
+      "max_linear_velocity_x": 0.7,
+      "colour": "silver",
+      "type": "Rebar Robot"
+    },
+    "glass_installation_robot": {
+      "radius": 0.7,
+      "max_linear_velocity_x": 0.6,
+      "colour": "cyan",
+      "type": "Glass Handling Robot"
+    },
+    "roof_inspection_drone": {
+      "radius": 0.3,
+      "max_linear_velocity_x": 7.0,
+      "colour": "light_blue",
+      "type": "Inspection Drone"
+    },
+    "cement_transport_robot": {
+      "radius": 0.6,
+      "max_linear_velocity_x": 1.4,
+      "colour": "beige",
+      "type": "Transport Robot"
+    },
+    "forklift_robot": {
+      "radius": 0.9,
+      "max_linear_velocity_x": 2.0,
+      "colour": "dark_yellow",
+      "type": "Forklift Robot"
+    },
+    "scaffolding_assembly_robot": {
+      "radius": 0.7,
+      "max_linear_velocity_x": 1.0,
+      "colour": "navy",
+      "type": "Assembly Robot"
+    },
+    "pipe_installation_robot": {
+      "radius": 0.6,
+      "max_linear_velocity_x": 1.0,
+      "colour": "teal",
+      "type": "Pipe Robot"
+    },
+    "electrical_wiring_robot": {
+      "radius": 0.4,
+      "max_linear_velocity_x": 1.1,
+      "colour": "gold",
+      "type": "Electrical Robot"
+    },
+    "floor_cleaning_robot": {
+      "radius": 0.5,
+      "max_linear_velocity_x": 1.2,
+      "colour": "light_green",
+      "type": "Cleaning Robot"
+    },
+    "material_sorting_robot": {
+      "radius": 0.8,
+      "max_linear_velocity_x": 0.9,
+      "colour": "maroon",
+      "type": "Sorting Robot"
+    },
+    "demolition_robot": {
+      "radius": 1.0,
+      "max_linear_velocity_x": 1.3,
+      "colour": "dark_gray",
+      "type": "Demolition Robot"
+    },
+    "tile_installation_robot": {
+      "radius": 0.5,
+      "max_linear_velocity_x": 0.7,
+      "colour": "pink",
+      "type": "Tile Robot"
+    },
+    "window_cleaning_robot": {
+      "radius": 0.4,
+      "max_linear_velocity_x": 0.9,
+      "colour": "sky_blue",
+      "type": "Cleaning Robot"
+    },
+    "safety_monitoring_robot": {
+      "radius": 0.5,
+      "max_linear_velocity_x": 1.3,
+      "colour": "lime",
+      "type": "Safety Robot"
+    }
+  },
+
+  "task_specific_rules": [
+    "Heavy lifting tasks should only be assigned to crane, dump truck, or excavator robots.",
+    "Painting tasks must begin only after structural and concrete work is completed.",
+    "Welding tasks require nearby safety monitoring robots to remain active.",
+    "Fragile materials like glass must be handled only by glass installation robots.",
+    "Demolition robots must operate in isolated safety zones.",
+    "Electrical wiring should begin only after wall and structural inspections are complete."
+  ],
+
+  "task_replanning_rules": [
+    "If a path becomes blocked, robots should dynamically reroute around debris or obstacles.",
+    "If drone flight becomes unsafe due to weather, assign inspection tasks to humanoid inspection robots.",
+    "If a heavy transport robot fails, redistribute payload across multiple smaller robots if feasible.",
+    "If worker safety risks are detected, all nearby robots must slow down or pause operations.",
+    "Idle robots should assist overloaded robots during critical construction phases.",
+    "If a robotic arm becomes unavailable, assign manipulation tasks to another compatible robot."
+  ]
+}

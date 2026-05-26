@@ -1,0 +1,122 @@
+{
+  "robot_names": [
+    "lab_assistant_robot",
+    "inspection_drone",
+    "maintenance_bot",
+    "delivery_robot",
+    "safety_monitor_bot"
+  ],
+  "robot_capabilities": {
+    "lab_assistant_robot": "Lab Assistant Robot autonomous robot for operational support and emergency response.",
+    "inspection_drone": "Inspection Drone autonomous robot for operational support and emergency response.",
+    "maintenance_bot": "Maintenance Bot autonomous robot for operational support and emergency response.",
+    "delivery_robot": "Delivery Robot autonomous robot for operational support and emergency response.",
+    "safety_monitor_bot": "Safety Monitor Bot autonomous robot for operational support and emergency response."
+  },
+  "robot_morphology": {
+    "lab_assistant_robot": "Drive Type: Differential Drive, Radius: 0.30 m, Payload: 10 kg, Mobility: Non-holonomic",
+    "inspection_drone": "Type: Aerial Drone, Radius: 0.25 m, Payload: 3 kg, Mobility: Omnidirectional",
+    "maintenance_bot": "Drive Type: Differential Drive, Radius: 0.30 m, Payload: 10 kg, Mobility: Non-holonomic",
+    "delivery_robot": "Drive Type: Differential Drive, Radius: 0.30 m, Payload: 10 kg, Mobility: Non-holonomic",
+    "safety_monitor_bot": "Drive Type: Differential Drive, Radius: 0.30 m, Payload: 10 kg, Mobility: Non-holonomic"
+  },
+  "robot_states": {
+    "lab_assistant_robot": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+    "inspection_drone": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+    "maintenance_bot": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+    "delivery_robot": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+    "safety_monitor_bot": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    }
+  },
+  "path_planner": {
+    "lab_assistant_robot": {
+      "radius": 0.3,
+      "max_linear_velocity_x": 0.22,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 1.2,
+      "max_acceleration": 1.0,
+      "max_angular_acceleration": 2.0,
+      "colour": "green",
+      "type": "Differential Drive Robot"
+    },
+    "inspection_drone": {
+      "radius": 0.25,
+      "max_linear_velocity_x": 0.3,
+      "max_linear_velocity_y": 0.3,
+      "max_angular_velocity_z": 2.0,
+      "max_acceleration": 2.0,
+      "max_angular_acceleration": 3.0,
+      "colour": "brown",
+      "type": "Aerial Robot"
+    },
+    "maintenance_bot": {
+      "radius": 0.3,
+      "max_linear_velocity_x": 0.22,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 1.2,
+      "max_acceleration": 1.0,
+      "max_angular_acceleration": 2.0,
+      "colour": "purple",
+      "type": "Differential Drive Robot"
+    },
+    "delivery_robot": {
+      "radius": 0.3,
+      "max_linear_velocity_x": 0.22,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 1.2,
+      "max_acceleration": 1.0,
+      "max_angular_acceleration": 2.0,
+      "colour": "blue",
+      "type": "Differential Drive Robot"
+    },
+    "safety_monitor_bot": {
+      "radius": 0.3,
+      "max_linear_velocity_x": 0.22,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 1.2,
+      "max_acceleration": 1.0,
+      "max_angular_acceleration": 2.0,
+      "colour": "orange",
+      "type": "Differential Drive Robot"
+    }
+  },
+  "task_specific_rules": [
+    "Emergency events override ongoing low-priority tasks.",
+    "Robots should coordinate dynamically for multi-agent task execution.",
+    "Safety-critical alerts must interrupt current workflows."
+  ],
+  "task_replanning_rules": [
+    "Robots must replan routes when paths become blocked.",
+    "Nearest available robot should respond to emergency events.",
+    "Idle robots can assist overloaded robots during critical operations."
+  ]
+}

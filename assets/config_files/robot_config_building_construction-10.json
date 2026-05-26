@@ -1,0 +1,281 @@
+{
+  "robot_names": [
+    "drone",
+    "robot_dog_with_arm",
+    "differential_drive_robot_with_arm",
+    "tower_crane_robot",
+    "autonomous_dump_truck",
+    "concrete_pouring_robot",
+    "wall_painting_robot",
+    "welding_robot",
+    "excavator_robot",
+    "inspection_humanoid_robot"
+  ],
+
+  "robot_capabilities": {
+    "drone": "Can carry lightweight construction items quickly. Can fly over construction sites to survey progress, inspect structures, deliver small tools or parts, and monitor worker safety. Equipped with camera, depth sensor, lidar, and GPS. Useful for aerial inspection, elevated monitoring, and light material transport. Can alert other robots if cracks, gaps, or structural issues are detected.",
+
+    "robot_dog_with_arm": "Capable of carrying heavy construction materials across uneven terrain, climbing stairs, and accessing partially built structures. Equipped with robotic arm, lidar, thermal sensor, depth camera, and GPS. Suitable for rough terrain navigation, structure alignment, material placement, and tool handling. Can manipulate or hold construction tools and assist in heavy-duty operations.",
+
+    "differential_drive_robot_with_arm": "Suitable for delicate and precise construction tasks on flat terrain. Equipped with robotic arm, camera, GPS, and lidar. Can transport medium-weight materials, tighten bolts, assist in structural placement, and support brick alignment. Useful for material handover, beam support, and lower-area construction assistance.",
+
+    "tower_crane_robot": "Autonomous crane system capable of lifting and transporting heavy construction materials such as steel beams, concrete blocks, and prefabricated structures. Equipped with load sensors, cameras, lidar, and stabilization systems. Suitable for high-rise construction material transfer.",
+
+    "autonomous_dump_truck": "Capable of transporting sand, gravel, debris, and heavy materials across construction zones. Equipped with GPS, lidar, obstacle detection, and autonomous navigation. Suitable for continuous material movement between storage and active work areas.",
+
+    "concrete_pouring_robot": "Designed for automated concrete dispensing and surface leveling. Equipped with robotic pouring arm, depth sensors, and terrain alignment systems. Can accurately pour concrete into designated foundation or slab regions.",
+
+    "wall_painting_robot": "Autonomous robot for painting walls and large surfaces. Equipped with spray-painting system, camera, lidar, and elevation adjustment mechanism. Suitable for interior and exterior wall finishing tasks.",
+
+    "welding_robot": "Specialized robot for welding structural joints, steel frames, and support beams. Equipped with welding arm, thermal monitoring, camera, and precision alignment sensors. Suitable for repetitive and high-precision welding operations.",
+
+    "excavator_robot": "Heavy-duty autonomous excavation robot capable of digging foundations, trenches, and clearing debris. Equipped with excavation arm, bucket tool, lidar, GPS, and terrain mapping system. Suitable for large-scale earthmoving tasks.",
+
+    "inspection_humanoid_robot": "Humanoid inspection robot capable of walking through construction areas, interacting with workers, reading control panels, and performing safety checks. Equipped with stereo cameras, microphones, thermal sensors, lidar, and dexterous arms."
+  },
+
+  "robot_morphology": {
+    "drone": "Drive Type: Quadrotor Aerial Robot, Radius: 0.35 m, Payload: ~4 kg, Mobility: Holonomic Flying Robot, Flight Endurance: ~25 min",
+
+    "robot_dog_with_arm": "Drive Type: Quadruped Legged Robot, Radius: 0.50 m, Payload: ~20 kg, Mobility: Rough Terrain Locomotion, Arm Reach: ~0.6 m",
+
+    "differential_drive_robot_with_arm": "Drive Type: Differential Drive, Radius: 0.45 m, Payload: ~10 kg, Mobility: Non-holonomic Ground Robot, Arm Reach: ~0.8 m",
+
+    "tower_crane_robot": "Drive Type: Fixed Crane System, Radius: 4.0 m, Payload: ~1000 kg, Mobility: Stationary Rotational System, Lift Height: ~50 m",
+
+    "autonomous_dump_truck": "Drive Type: Heavy Wheeled Vehicle, Radius: 1.2 m, Payload: ~2000 kg, Mobility: Outdoor Ground Vehicle, Terrain: Construction Roads",
+
+    "concrete_pouring_robot": "Drive Type: Tracked Mobile Robot, Radius: 0.8 m, Payload: ~300 kg Concrete Mix, Mobility: Semi-flat Construction Terrain, Arm Reach: ~1.5 m",
+
+    "wall_painting_robot": "Drive Type: Wall-Climbing / Lift-Assisted Robot, Radius: 0.5 m, Payload: ~15 kg, Mobility: Vertical Surface Traversal, Spray Reach: ~2 m",
+
+    "welding_robot": "Drive Type: Industrial Mobile Manipulator, Radius: 0.6 m, Payload: ~20 kg, Mobility: Precision Ground Movement, Arm Reach: ~1.2 m",
+
+    "excavator_robot": "Drive Type: Tracked Excavation Vehicle, Radius: 1.5 m, Payload: ~5000 kg, Mobility: Rough Terrain Excavator, Digging Depth: ~4 m",
+
+    "inspection_humanoid_robot": "Drive Type: Bipedal Humanoid Robot, Radius: 0.4 m, Payload: ~8 kg, Mobility: Stair and Ladder Traversal, Arm Reach: ~0.7 m"
+  },
+
+  "robot_states": {
+    "drone": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "vertical_state": "Landed",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+
+    "robot_dog_with_arm": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "pose_state": "Standing",
+      "carry_state": "Empty",
+      "arm_state": "Stowed",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+
+    "differential_drive_robot_with_arm": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "mobility_state": "Stationary",
+      "carry_state": "Empty",
+      "arm_state": "Stowed",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+
+    "tower_crane_robot": {
+      "relative_position": "Fixed",
+      "relative_orientation": "Operational",
+      "hook_state": "Retracted",
+      "carry_state": "Empty",
+      "power_state": "Active",
+      "mode": "Idle"
+    },
+
+    "autonomous_dump_truck": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "load_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+
+    "concrete_pouring_robot": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "pouring_state": "Inactive",
+      "tank_state": "Full",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+
+    "wall_painting_robot": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "paint_state": "Loaded",
+      "elevation_state": "Ground",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+
+    "welding_robot": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "welding_state": "Inactive",
+      "arm_state": "Stowed",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+
+    "excavator_robot": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "bucket_state": "Empty",
+      "fuel_state": "Full",
+      "mode": "Idle"
+    },
+
+    "inspection_humanoid_robot": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "pose_state": "Standing",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    }
+  },
+
+  "path_planner": {
+    "drone": {
+      "radius": 0.35,
+      "max_linear_velocity_x": 6.0,
+      "max_linear_velocity_y": 6.0,
+      "max_angular_velocity_z": 2.0,
+      "max_acceleration": 3.0,
+      "max_angular_acceleration": 3.0,
+      "colour": "blue",
+      "type": "Quadrotor Aerial Robot"
+    },
+
+    "robot_dog_with_arm": {
+      "radius": 0.50,
+      "max_linear_velocity_x": 2.5,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 1.5,
+      "max_acceleration": 2.0,
+      "max_angular_acceleration": 2.5,
+      "colour": "brown",
+      "type": "Quadruped Legged Robot"
+    },
+
+    "differential_drive_robot_with_arm": {
+      "radius": 0.45,
+      "max_linear_velocity_x": 1.5,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 1.2,
+      "max_acceleration": 1.5,
+      "max_angular_acceleration": 2.0,
+      "colour": "green",
+      "type": "Differential Drive Robot"
+    },
+
+    "tower_crane_robot": {
+      "radius": 4.0,
+      "max_linear_velocity_x": 0.0,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 0.4,
+      "max_acceleration": 0.2,
+      "max_angular_acceleration": 0.3,
+      "colour": "yellow",
+      "type": "Fixed Crane Robot"
+    },
+
+    "autonomous_dump_truck": {
+      "radius": 1.2,
+      "max_linear_velocity_x": 4.0,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 0.8,
+      "max_acceleration": 1.2,
+      "max_angular_acceleration": 1.0,
+      "colour": "orange",
+      "type": "Autonomous Heavy Vehicle"
+    },
+
+    "concrete_pouring_robot": {
+      "radius": 0.8,
+      "max_linear_velocity_x": 1.0,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 0.8,
+      "max_acceleration": 1.0,
+      "max_angular_acceleration": 1.0,
+      "colour": "gray",
+      "type": "Tracked Construction Robot"
+    },
+
+    "wall_painting_robot": {
+      "radius": 0.5,
+      "max_linear_velocity_x": 0.8,
+      "max_linear_velocity_y": 0.2,
+      "max_angular_velocity_z": 0.6,
+      "max_acceleration": 0.8,
+      "max_angular_acceleration": 0.8,
+      "colour": "purple",
+      "type": "Wall Climbing Robot"
+    },
+
+    "welding_robot": {
+      "radius": 0.6,
+      "max_linear_velocity_x": 1.0,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 0.7,
+      "max_acceleration": 1.0,
+      "max_angular_acceleration": 1.0,
+      "colour": "red",
+      "type": "Industrial Welding Robot"
+    },
+
+    "excavator_robot": {
+      "radius": 1.5,
+      "max_linear_velocity_x": 1.8,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 0.5,
+      "max_acceleration": 0.8,
+      "max_angular_acceleration": 0.6,
+      "colour": "black",
+      "type": "Autonomous Excavator"
+    },
+
+    "inspection_humanoid_robot": {
+      "radius": 0.4,
+      "max_linear_velocity_x": 1.2,
+      "max_linear_velocity_y": 0.2,
+      "max_angular_velocity_z": 1.5,
+      "max_acceleration": 1.2,
+      "max_angular_acceleration": 1.5,
+      "colour": "white",
+      "type": "Humanoid Inspection Robot"
+    }
+  },
+
+  "task_specific_rules": [
+    "If a robot is carrying a fragile object, it should not be reassigned until delivery is complete.",
+    "Heavy materials should be assigned to the tower crane or dump truck when payload exceeds mobile robot limits.",
+    "Drone inspections should be prioritized for elevated or hazardous structures.",
+    "Welding operations must only begin after structural alignment is verified.",
+    "Concrete pouring must be completed before wall painting tasks begin.",
+    "Excavation zones must remain restricted to excavation-related robots during digging operations."
+  ],
+
+  "task_replanning_rules": [
+    "If the path is blocked for the differential drive robot, reassign the material to the robot dog if within payload capacity.",
+    "If drone flight is restricted due to low battery or strong wind, delay aerial monitoring or trigger manual inspection.",
+    "If a robotic arm fails during execution, assign the task to a nearby robot with available arm capabilities.",
+    "Robots must dynamically replan routes if construction debris or obstacles appear in the workspace.",
+    "If the tower crane becomes unavailable, split heavy transport tasks across multiple ground robots if feasible.",
+    "If worker safety risks are detected, inspection robots and drones should immediately notify all nearby robots.",
+    "Idle robots should assist overloaded robots during high-priority construction phases."
+  ]
+}

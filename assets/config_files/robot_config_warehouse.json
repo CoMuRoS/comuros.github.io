@@ -1,0 +1,122 @@
+{
+  "robot_names": [
+    "forklift_robot",
+    "inventory_scanner_drone",
+    "conveyor_assistant_bot",
+    "inspection_rover",
+    "packing_robot"
+  ],
+  "robot_capabilities": {
+    "forklift_robot": "Forklift Robot autonomous robot for operational support and emergency response.",
+    "inventory_scanner_drone": "Inventory Scanner Drone autonomous robot for operational support and emergency response.",
+    "conveyor_assistant_bot": "Conveyor Assistant Bot autonomous robot for operational support and emergency response.",
+    "inspection_rover": "Inspection Rover autonomous robot for operational support and emergency response.",
+    "packing_robot": "Packing Robot autonomous robot for operational support and emergency response."
+  },
+  "robot_morphology": {
+    "forklift_robot": "Drive Type: Differential Drive, Radius: 0.30 m, Payload: 10 kg, Mobility: Non-holonomic",
+    "inventory_scanner_drone": "Type: Aerial Drone, Radius: 0.25 m, Payload: 3 kg, Mobility: Omnidirectional",
+    "conveyor_assistant_bot": "Drive Type: Differential Drive, Radius: 0.30 m, Payload: 10 kg, Mobility: Non-holonomic",
+    "inspection_rover": "Drive Type: Differential Drive, Radius: 0.30 m, Payload: 10 kg, Mobility: Non-holonomic",
+    "packing_robot": "Drive Type: Differential Drive, Radius: 0.30 m, Payload: 10 kg, Mobility: Non-holonomic"
+  },
+  "robot_states": {
+    "forklift_robot": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+    "inventory_scanner_drone": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+    "conveyor_assistant_bot": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+    "inspection_rover": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+    "packing_robot": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    }
+  },
+  "path_planner": {
+    "forklift_robot": {
+      "radius": 0.3,
+      "max_linear_velocity_x": 0.22,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 1.2,
+      "max_acceleration": 1.0,
+      "max_angular_acceleration": 2.0,
+      "colour": "green",
+      "type": "Differential Drive Robot"
+    },
+    "inventory_scanner_drone": {
+      "radius": 0.25,
+      "max_linear_velocity_x": 0.3,
+      "max_linear_velocity_y": 0.3,
+      "max_angular_velocity_z": 2.0,
+      "max_acceleration": 2.0,
+      "max_angular_acceleration": 3.0,
+      "colour": "brown",
+      "type": "Aerial Robot"
+    },
+    "conveyor_assistant_bot": {
+      "radius": 0.3,
+      "max_linear_velocity_x": 0.22,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 1.2,
+      "max_acceleration": 1.0,
+      "max_angular_acceleration": 2.0,
+      "colour": "purple",
+      "type": "Differential Drive Robot"
+    },
+    "inspection_rover": {
+      "radius": 0.3,
+      "max_linear_velocity_x": 0.22,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 1.2,
+      "max_acceleration": 1.0,
+      "max_angular_acceleration": 2.0,
+      "colour": "blue",
+      "type": "Differential Drive Robot"
+    },
+    "packing_robot": {
+      "radius": 0.3,
+      "max_linear_velocity_x": 0.22,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 1.2,
+      "max_acceleration": 1.0,
+      "max_angular_acceleration": 2.0,
+      "colour": "orange",
+      "type": "Differential Drive Robot"
+    }
+  },
+  "task_specific_rules": [
+    "Emergency events override ongoing low-priority tasks.",
+    "Robots should coordinate dynamically for multi-agent task execution.",
+    "Safety-critical alerts must interrupt current workflows."
+  ],
+  "task_replanning_rules": [
+    "Robots must replan routes when paths become blocked.",
+    "Nearest available robot should respond to emergency events.",
+    "Idle robots can assist overloaded robots during critical operations."
+  ]
+}

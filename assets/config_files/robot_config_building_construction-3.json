@@ -1,0 +1,102 @@
+{
+  "robot_names": [
+    "drone",
+    "robot_dog_with_arm",
+    "differential_drive_robot_with_arm"
+  ],
+
+  "robot_capabilities": {
+    "drone": "Can carry lightweight construction items quickly. Can fly over construction sites to survey progress, inspect structures, deliver small tools or parts, and monitor worker safety. Equipped with camera, depth sensor, lidar, and GPS. Useful for aerial inspection, elevated monitoring, and light material transport. Can alert other robots if cracks, gaps, or structural issues are detected.",
+
+    "robot_dog_with_arm": "Capable of carrying heavy construction materials across uneven terrain, climbing stairs, and accessing partially built structures. Equipped with robotic arm, lidar, thermal sensor, depth camera, and GPS. Suitable for rough terrain navigation, structure alignment, material placement, and tool handling. Can manipulate or hold construction tools and assist in heavy-duty operations.",
+
+    "differential_drive_robot_with_arm": "Suitable for delicate and precise construction tasks on flat terrain. Equipped with robotic arm, camera, GPS, and lidar. Can transport medium-weight materials, tighten bolts, assist in structural placement, and support brick alignment. Useful for material handover, beam support, and lower-area construction assistance."
+  },
+
+  "robot_morphology": {
+    "drone": "Drive Type: Quadrotor Aerial Robot, Radius: 0.35 m, Payload: ~4 kg, Mobility: Holonomic Flying Robot, Flight Endurance: ~25 min, Max Altitude: 30 m",
+
+    "robot_dog_with_arm": "Drive Type: Quadruped Legged Robot, Radius: 0.50 m, Payload: ~20 kg, Mobility: Rough Terrain Locomotion, Arm Reach: ~0.6 m, Terrain: Debris, stairs, and platform edges",
+
+    "differential_drive_robot_with_arm": "Drive Type: Differential Drive, Radius: 0.45 m, Payload: ~10 kg, Mobility: Non-holonomic Ground Robot, Arm Reach: ~0.8 m, Terrain: Flat construction areas"
+  },
+
+  "robot_states": {
+    "drone": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "vertical_state": "Landed",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+
+    "robot_dog_with_arm": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "pose_state": "Standing",
+      "carry_state": "Empty",
+      "arm_state": "Stowed",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+
+    "differential_drive_robot_with_arm": {
+      "relative_position": "Free",
+      "relative_orientation": "Operational",
+      "mobility_state": "Stationary",
+      "carry_state": "Empty",
+      "arm_state": "Stowed",
+      "battery_state": "Full",
+      "mode": "Idle"
+    }
+  },
+
+  "path_planner": {
+    "drone": {
+      "radius": 0.35,
+      "max_linear_velocity_x": 6.0,
+      "max_linear_velocity_y": 6.0,
+      "max_angular_velocity_z": 2.0,
+      "max_acceleration": 3.0,
+      "max_angular_acceleration": 3.0,
+      "colour": "blue",
+      "type": "Quadrotor Aerial Robot"
+    },
+
+    "robot_dog_with_arm": {
+      "radius": 0.50,
+      "max_linear_velocity_x": 2.5,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 1.5,
+      "max_acceleration": 2.0,
+      "max_angular_acceleration": 2.5,
+      "colour": "brown",
+      "type": "Quadruped Legged Robot"
+    },
+
+    "differential_drive_robot_with_arm": {
+      "radius": 0.45,
+      "max_linear_velocity_x": 1.5,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 1.2,
+      "max_acceleration": 1.5,
+      "max_angular_acceleration": 2.0,
+      "colour": "green",
+      "type": "Differential Drive Robot"
+    }
+  },
+
+  "task_specific_rules": [
+    "If a robot is carrying a fragile object, it should not be reassigned until delivery is complete.",
+    "Heavy materials should be assigned to the robot dog when terrain is uneven or unstable.",
+    "Drone inspections should be prioritized for elevated or hard-to-reach structures."
+  ],
+
+  "task_replanning_rules": [
+    "If the path is blocked for the differential drive robot, reassign the material to the robot dog if within payload capacity.",
+    "If drone flight is restricted due to low battery or strong wind, delay aerial monitoring or trigger manual inspection.",
+    "If a robotic arm fails during execution, assign the task to a nearby robot with available arm capabilities.",
+    "Robots must dynamically replan routes if construction debris or obstacles appear in the workspace."
+  ]
+}

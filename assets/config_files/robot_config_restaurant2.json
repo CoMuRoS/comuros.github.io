@@ -1,0 +1,120 @@
+{
+  "robot_names": [
+    "delivery_bot1",
+    "delivery_bot2",
+    "delivery_bot3",
+    "cleaning_bot"
+  ],
+
+  "robot_capabilities": {
+    "delivery_bot1": "Differential drive carry robot for indoor transport and cooperative item delivery.",
+    "delivery_bot2": "Differential drive carry robot for indoor transport and cooperative item delivery.",
+    "delivery_bot3": "Holonomic carry robot capable of omnidirectional movement for precise transport and cooperative delivery.",
+    "cleaning_bot": "Holonomic carry robot capable of omnidirectional movement for precise transport and cooperative delivery."
+  },
+
+  "robot_morphology": {
+    "delivery_bot1": "Drive Type: Differential Drive, Radius: 0.15 m, Payload: 5 kg, Mobility: Non-holonomic",
+    "delivery_bot2": "Drive Type: Differential Drive, Radius: 0.15 m, Payload: 5 kg, Mobility: Non-holonomic",
+    "delivery_bot3": "Drive Type: Holonomic, Radius: 0.15 m, Payload: 10 kg, Mobility: Omnidirectional",
+    "cleaning_bot": "Drive Type: Holonomic, Radius: 0.15 m, Payload: 10 kg, Mobility: Omnidirectional"
+  },
+
+  "robot_states": {
+
+    "delivery_bot1": {
+      "relative_position": "Free",
+      "relative_orientation": "Facing direction of travel",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+
+    "delivery_bot2": {
+      "relative_position": "Free",
+      "relative_orientation": "Facing direction of travel",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+
+    "delivery_bot3": {
+      "relative_position": "Free",
+      "relative_orientation": "Fully maneuverable",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    },
+
+    "cleaning_bot": {
+      "relative_position": "Free",
+      "relative_orientation": "Fully maneuverable",
+      "carry_state": "Empty",
+      "battery_state": "Full",
+      "mode": "Idle"
+    }
+  },
+
+  "path_planner": {
+    "delivery_bot1":{
+      "radius":0.25,
+      "max_linear_velocity_x": 0.25,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 0.4,
+      "max_acceleration": 2.5,
+      "max_angular_acceleration": 2.5,
+      "colour": "green",
+      "type": "Differential Drive Robot"
+    },
+    "delivery_bot2":{
+      "radius":0.25,
+      "max_linear_velocity_x": 0.25,
+      "max_linear_velocity_y": 0.0,
+      "max_angular_velocity_z": 0.4,
+      "max_acceleration": 2.5,
+      "max_angular_acceleration": 2.5,
+      "colour": "blue",
+      "type": "Differential Drive Robot"
+    },
+    "delivery_bot3":{
+      "radius":0.25,
+      "max_linear_velocity_x": 0.25,
+      "max_linear_velocity_y": 0.25,
+      "max_angular_velocity_z": 0.4,
+      "max_acceleration": 2.5,
+      "max_angular_acceleration": 2.5,
+      "colour": "purple",
+      "type": "Holonomic Drive Robot"
+    },
+    "cleaning_bot":{
+      "radius":0.25,
+      "max_linear_velocity_x": 0.25,
+      "max_linear_velocity_y": 0.25,
+      "max_angular_velocity_z": 0.4,
+      "max_acceleration": 2.5,
+      "max_angular_acceleration": 2.5,
+      "colour": "red",
+      "type": "Holonomic Drive Robot"
+    }
+  },
+
+"task_specific_rules": [
+    "This is a restaurant environment, where robots serve, clean and help.",
+    "The restaurant is fully autonomous and operated entirely by robots.",
+    "Stall 1 is for cake, gift, and speaker and stall 2 has all types of vegetarian food. ",
+    "Tables 1, 2, 3, 4, 5, and 6 are present in the restaurant environment.",
+    "There are 2 sinks in the environment.",
+    "Stalls, tables and sinks locations are fixed and known to all robots so no need to find them.",
+    "All customers are seated at tables. when you know customer locattion by table or chair nnumber, no need to find the customer. ",
+    "Always assign tasks with the correct Stall Number or Table Number. ",
+    "For a birthday special event, the gift, speaker, and cake are all in Stall 1.",
+    "To celebrate the birthday of a customer, delivery robots go as a team to pick and deliver the gift, speaker, and cake to the confirmed table of the customer.",
+    "Treat celebration as a coordinated independent team task.",
+    "Birthday is celebrated by only delivery robots. After celebrating, all delivery robots return home.",
+    "CRITICAL: Never send a STOP message to any of the robots.",
+    "Always use Independent tasks. For coordinated actions use team independent tasks. Do not use sequential or plan tasks."
+],
+
+  "task_replanning_rules": [
+  ]
+}
