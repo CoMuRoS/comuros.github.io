@@ -33,7 +33,8 @@
     <section id="home" class="section home">
       <div class="hero-content">
         <h1>CoMuRoS</h1>
-        <p class="hero-subtitle">Collaborative Multi-Robot System for Generalizable Task Planning, Event-Driven Replanning, and Human-Robot Collaboration</p>        <p class="authors-list">Suraj Borate · Bhavish Rai B · Vipul Pardeshi · Madhu Vadali</p>
+        <p class="hero-subtitle">Collaborative Multi-Robot System for Generalizable Task Planning, Event-Driven Replanning, and Human-Robot Collaboration</p>
+        <p class="authors-list">Suraj Borate · Bhavish Rai B · Vipul Pardeshi · Madhu Vadali</p>
         <p class="affiliation">IIT Gandhinagar</p>
         <a href="#demo" class="cta-button">Watch Experiments</a>
         <div style="margin-top: 2rem">
@@ -49,8 +50,8 @@
         <div class="section-header">
           <h2 class="section-title">Experiment Videos</h2>
           <p class="section-subtitle">Watch CoMuRoS in action across hardware and simulation experiments</p>
-        </div>  
-        
+        </div>
+
         <div class="video-grid-wrapper">
           <div class="video-item">
             <div class="video-wrapper">
@@ -60,24 +61,24 @@
               <h4>CoMuRoS Teaser Video</h4>
             </div>
           </div>
-  
+
           <div class="video-item">
             <div class="video-wrapper">
               <iframe src="https://www.youtube.com/embed/7QZDq5MSq1A" frameborder="0" allowfullscreen></iframe>
-            </div>  
+            </div>
             <div class="video-content">
               <h4>Emergent Human-Multirobot collaboration when recovery from event is beyond capabilities of robots</h4>
-            </div>  
-          </div>  
+            </div>
+          </div>
 
           <div class="video-item">
             <div class="video-wrapper">
               <iframe src="https://www.youtube.com/embed/UtOMZBV_mUQ" frameborder="0" allowfullscreen></iframe>
-            </div>  
+            </div>
             <div class="video-content">
               <h4>Formation of mobile robots and Robotic Arm collaborate to transport an object</h4>
-            </div>  
-          </div>  
+            </div>
+          </div>
 
           <div class="video-item">
             <div class="video-wrapper">
@@ -145,17 +146,16 @@
       </div>
     </section>
 
-    <!-- Installation -->
-    <section id="installation" class="section">
+    <!-- Installation — alternating background -->
+    <section id="installation" class="section section-alt">
       <div class="content-section">
         <div class="section-header">
           <h2 class="section-title">Installation</h2>
           <p class="section-subtitle">Setup instructions for installing CoMuRoS Architecture</p>
         </div>
-        
-        <div class="step">
-          <h3>Setup </h3>
 
+        <div class="step">
+          <h3>Setup</h3>
           <ul>
             <li>ROS 2 <strong>Humble Hawksbill</strong> (LTS, recommended)</li>
             <li>Ubuntu 22.04 (Jammy Jellyfish)</li>
@@ -163,9 +163,7 @@
             <li>Git</li>
             <li>colcon build tool</li>
           </ul>
-
           <p><strong>Verify that ROS 2 is installed and sourced correctly:</strong></p>
-
           <div class="code-block">
             <pre><code># Check ROS 2 environment variables
 printenv | grep -i ROS
@@ -173,19 +171,14 @@ printenv | grep -i ROS
 # Expected output should include at least:
 # ROS_DISTRO=humble
 # ROS_VERSION=2
-# ROS_PYTHON_VERSION=3
-          </code></pre>
-        </div>
-
-        <p>
-          If <code>ROS_DISTRO=humble</code> is present, your ROS 2 environment is
-          correctly set up and ready for <strong>CoMuRoS</strong>.
-        </p>
+# ROS_PYTHON_VERSION=3</code></pre>
+          </div>
+          <p>If <code>ROS_DISTRO=humble</code> is present, your ROS 2 environment is correctly set up and ready for <strong>CoMuRoS</strong>.</p>
         </div>
 
         <div class="step">
           <h3>Clone the Repository</h3>
-          <p>Clone the anonymous repository into your ROS 2 workspace:</p>
+          <p>Clone the repository into your ROS 2 workspace:</p>
           <div class="code-block">
             <pre><code>cd ~/ros2_ws/src
 git clone https://github.com/CoMuRoS/CoMuRoS.git
@@ -231,14 +224,10 @@ export XAI_API_KEY="your_grok_key"</code></pre>
           </div>
           <p>Advanced: run nodes individually for <code>chat_manager</code>, <code>task_manager</code>, and <code>chat_gui</code>.</p>
         </div>
-
-        <!-- <div class="step">
-          <h3>Full Documentation</h3>
-          <p>For detailed instructions and configuration examples, see the <a href="https://anonymous.4open.science/r/CoMuRoS-0242/" target="_blank" rel="noopener">README in the anonymous GitHub repository</a>.</p>
-        </div>
-      </div> -->
+      </div>
     </section>
 
+    <!-- Tutorial -->
     <section id="usage" class="section">
       <div class="content-section">
         <div class="section-header">
@@ -280,9 +269,9 @@ export XAI_API_KEY="your_grok_key"</code></pre>
           <ul>
             <li>Starts LLM interface nodes for all robots:
               <ul>
-                <li><code>cleaning_bot_llm_node</code> - Interprets commands for cleaning robot</li>
-                <li><code>delivery_bot_llm_node</code> - Interprets commands for delivery robot</li>
-                <li><code>drone_llm_node</code> - Interprets commands for the drone</li>
+                <li><code>cleaning_bot_llm_node</code> — Interprets commands for cleaning robot</li>
+                <li><code>delivery_bot_llm_node</code> — Interprets commands for delivery robot</li>
+                <li><code>drone_llm_node</code> — Interprets commands for the drone</li>
               </ul>
             </li>
             <li>Each node subscribes to task messages from the chat system</li>
@@ -299,9 +288,9 @@ export XAI_API_KEY="your_grok_key"</code></pre>
           <ul>
             <li>Starts position controller services for each robot:
               <ul>
-                <li><code>cleaning_bot_position_controller</code> (namespace: r1) - Holonomic controller</li>
-                <li><code>deliver_bot_position_controller</code> (namespace: r2) - Holonomic controller</li>
-                <li><code>drone_position_controller</code> (namespace: r3) - Drone flight controller</li>
+                <li><code>cleaning_bot_position_controller</code> (namespace: r1) — Holonomic controller</li>
+                <li><code>deliver_bot_position_controller</code> (namespace: r2) — Holonomic controller</li>
+                <li><code>drone_position_controller</code> (namespace: r3) — Drone flight controller</li>
               </ul>
             </li>
             <li>Provides low-level motion control services</li>
@@ -311,7 +300,7 @@ export XAI_API_KEY="your_grok_key"</code></pre>
 
         <div class="step">
           <h3>Terminal 4: Launch Chat Interface</h3>
-          <div class="code-block">  
+          <div class="code-block">
             <pre><code>ros2 launch chatty chat_system.launch.py</code></pre>
           </div>
           <p><strong>What it does:</strong></p>
@@ -335,10 +324,9 @@ ros2 launch chatty chat_system.launch.py enable_audio_input:=true enable_audio_o
           </div>
         </div>
 
-
         <div class="step">
           <h3>Example Commands</h3>
-          <p>Once all four terminals are running start commanding and interacting with multirobot system, for example:</p>
+          <p>Once all four terminals are running, start commanding the multi-robot system:</p>
           <ul>
             <li>"Clean the place"</li>
             <li>"Serve coke to the child"</li>
@@ -373,12 +361,12 @@ ros2 launch chatty chat_system.launch.py enable_audio_input:=true enable_audio_o
         <div class="step">
           <h3>Adding New Robots</h3>
           <p>Want to add your own robot to the system? Follow these steps:</p>
-          
-          <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Step 1: Add Robot to Simulation</h4>
+
+          <h4>Step 1: Add Robot to Simulation</h4>
           <p>Edit <code>multi_robot/launch/multi_robot.launch.py</code> and add your robot launch:</p>
           <div class="code-block">
             <pre><code>robot4_launch = TimerAction(
-    period=30.0,  # Spawn delay in seconds
+    period=30.0,
     actions=[
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(your_robot_launch_path),
@@ -394,9 +382,8 @@ ros2 launch chatty chat_system.launch.py enable_audio_input:=true enable_audio_o
     ]
 )</code></pre>
           </div>
-          
-          <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Step 2: Create Robot Package Structure</h4>
-          <p>Create a new package with this structure:</p>
+
+          <h4>Step 2: Create Robot Package Structure</h4>
           <div class="code-block">
             <pre><code>your_robot_llm/
 ├── data/
@@ -410,23 +397,22 @@ ros2 launch chatty chat_system.launch.py enable_audio_input:=true enable_audio_o
     ├── your_robot_llm.py
     └── your_robot_services.py</code></pre>
           </div>
-          
-          <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Step 3: Add LLM Node</h4>
+
+          <h4>Step 3: Add LLM Node</h4>
           <p>Edit <code>robot_llm/launch/robot_llms.launch.py</code> to include your robot's LLM interface node.</p>
-          
-          <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Step 4: Add Robot Service</h4>
+
+          <h4>Step 4: Add Robot Service</h4>
           <p>Edit <code>robot_llm/launch/robot_services.launch.py</code> to include your robot's position controller service.</p>
-          
-          <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Step 5: Update Robot Configuration</h4>
+
+          <h4>Step 5: Update Robot Configuration</h4>
           <p>Create or edit configuration files in <code>chatty/config/</code> with robot capabilities and initial state.</p>
-          
-          <h4 style="margin-top: 1.5rem; color: var(--primary-color);">Step 6: Build and Test</h4>
+
+          <h4>Step 6: Build and Test</h4>
           <div class="code-block">
             <pre><code>cd ~/ros2_ws
 colcon build --packages-select your_robot_llm
 source install/setup.bash
 
-# Test the new robot
 ros2 launch multi_robot multi_robot.launch.py
 ros2 launch robot_llm robot_llms.launch.py
 ros2 launch robot_llm robot_services.launch.py
@@ -436,264 +422,248 @@ ros2 launch chatty chat_system.launch.py</code></pre>
       </div>
     </section>
 
+    <!-- Data — alternating background -->
+    <section id="dataset" class="section section-alt">
+      <div class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">Data</h2>
+          <p class="section-subtitle">Robot configuration files and experiment GUI screenshots</p>
+        </div>
 
-<!-- Data -->
-<section id="dataset" class="section">
-  <div class="content-section" style="padding: 3rem 2.5rem;">
-    <div class="section-header">
-      <h2 class="section-title">Data</h2>
-      <p class="section-subtitle">Robot configuration files and experiment GUI screenshots</p>
-    </div>
+        <div class="data-subsection">
+          <div class="data-sub-header">
+            <div>
+              <h3 class="data-sub-title">Config Files</h3>
+              <p class="data-sub-desc">Robot configuration files for each experiment. Click a card to read the full JSON.</p>
+            </div>
+          </div>
+          <div class="cards-track-wrap">
+            <div class="cards-track" id="cfg-track"></div>
+          </div>
+          <div class="track-nav">
+            <button class="track-nav-btn" onclick="scrollTrack('cfg-track', -1)" aria-label="Scroll left">&#8592; Prev</button>
+            <button class="track-nav-btn" onclick="scrollTrack('cfg-track', 1)"  aria-label="Scroll right">Next &#8594;</button>
+          </div>
+        </div>
 
-    <!-- Sub-section: Config Files -->
-    <div class="data-subsection">
-      <div class="data-sub-header">
-        <div>
-          <h3 class="data-sub-title">Config Files</h3>
-          <p class="data-sub-desc">Robot configuration files for each experiment. Click a card to read the full JSON.</p>
+        <div class="data-divider"></div>
+
+        <div class="data-subsection">
+          <div class="data-sub-header">
+            <div>
+              <h3 class="data-sub-title">Chat GUI Screenshots</h3>
+              <p class="data-sub-desc">Interface screenshots from real experiment runs. Click to view full size.</p>
+            </div>
+          </div>
+          <div class="cards-track-wrap">
+            <div class="cards-track" id="gui-track"></div>
+          </div>
+          <div class="track-nav">
+            <button class="track-nav-btn" onclick="scrollTrack('gui-track', -1)" aria-label="Scroll left">&#8592; Prev</button>
+            <button class="track-nav-btn" onclick="scrollTrack('gui-track', 1)"  aria-label="Scroll right">Next &#8594;</button>
+          </div>
+        </div>
+
+        <div class="data-divider"></div>
+        <div class="button-container" style="padding-top: 2rem;">
+          <a href="https://drive.google.com/drive/folders/1i6ZupC1dC3AuS4vKeeRPAZpVnoHiibIK?usp=drive_link"
+            class="dataset-button"
+            target="_blank"
+            rel="noopener">
+            Google Drive
+          </a>
         </div>
       </div>
-      <div class="cards-track-wrap">
-        <div class="cards-track" id="cfg-track">
-          <!-- populated by JS -->
+
+      <!-- JSON Modal -->
+      <div class="ds-backdrop" id="json-backdrop" onclick="closeJsonModal()">
+        <div class="ds-modal json-ds-modal" onclick="event.stopPropagation()">
+          <div class="ds-modal-header">
+            <div>
+              <p class="ds-modal-title" id="json-modal-exp"></p>
+              <p class="ds-modal-sub"   id="json-modal-file"></p>
+            </div>
+            <button class="ds-close-btn" onclick="closeJsonModal()" aria-label="Close">&times;</button>
+          </div>
+          <pre class="ds-json-body" id="json-modal-body"></pre>
         </div>
       </div>
-      <!-- Nav arrows BELOW the track -->
-      <div class="track-nav">
-        <button class="track-nav-btn" onclick="scrollTrack('cfg-track', -1)" aria-label="Scroll left">&#8592; Prev</button>
-        <button class="track-nav-btn" onclick="scrollTrack('cfg-track', 1)"  aria-label="Scroll right">Next &#8594;</button>
-      </div>
-    </div>
 
-    <div class="data-divider"></div>
-
-    <!-- Sub-section: Chat GUI Images -->
-    <div class="data-subsection">
-      <div class="data-sub-header">
-        <div>
-          <h3 class="data-sub-title">Chat GUI Screenshots</h3>
-          <p class="data-sub-desc">Interface screenshots from real experiment runs. Click to view full size.</p>
+      <!-- Image Modal -->
+      <div class="ds-backdrop" id="img-backdrop" onclick="closeImgModal()">
+        <div class="ds-modal img-ds-modal" onclick="event.stopPropagation()">
+          <div class="ds-modal-header">
+            <p class="ds-modal-title" id="img-modal-exp"></p>
+            <button class="ds-close-btn" onclick="closeImgModal()" aria-label="Close">&times;</button>
+          </div>
+          <div class="img-modal-body">
+            <button class="ds-nav-btn" id="lb-prev" onclick="lbStep(-1)" aria-label="Previous">&#8592;</button>
+            <div class="lb-img-wrap">
+              <img id="lb-img" src="" alt="" />
+            </div>
+            <button class="ds-nav-btn" id="lb-next" onclick="lbStep(1)" aria-label="Next">&#8594;</button>
+          </div>
+          <p class="lb-caption" id="lb-caption"></p>
         </div>
       </div>
-      <div class="cards-track-wrap">
-        <div class="cards-track" id="gui-track">
-          <!-- populated by JS -->
-        </div>
-      </div>
-      <!-- Nav arrows BELOW the track -->
-      <div class="track-nav">
-        <button class="track-nav-btn" onclick="scrollTrack('gui-track', -1)" aria-label="Scroll left">&#8592; Prev</button>
-        <button class="track-nav-btn" onclick="scrollTrack('gui-track', 1)"  aria-label="Scroll right">Next &#8594;</button>
-      </div>
-    </div>
-
-    <!-- Google Drive button -->
-    <div class="data-divider"></div>
-    <div class="button-container" style="padding-top: 2rem;">
-      <a href="https://drive.google.com/drive/folders/1i6ZupC1dC3AuS4vKeeRPAZpVnoHiibIK?usp=drive_link"
-        class="dataset-button"
-        target="_blank"
-        rel="noopener">
-        Google Drive
-      </a>
-    </div>
-  </div>
-
-  <!-- JSON Modal -->
-  <div class="ds-backdrop" id="json-backdrop" onclick="closeJsonModal()">
-    <div class="ds-modal json-ds-modal" onclick="event.stopPropagation()">
-      <div class="ds-modal-header">
-        <div>
-          <p class="ds-modal-title" id="json-modal-exp"></p>
-          <p class="ds-modal-sub"   id="json-modal-file"></p>
-        </div>
-        <button class="ds-close-btn" onclick="closeJsonModal()" aria-label="Close">&times;</button>
-      </div>
-      <pre class="ds-json-body" id="json-modal-body"></pre>
-    </div>
-  </div>
-
-  <!-- Image Modal -->
-  <div class="ds-backdrop" id="img-backdrop" onclick="closeImgModal()">
-    <div class="ds-modal img-ds-modal" onclick="event.stopPropagation()">
-      <div class="ds-modal-header">
-        <p class="ds-modal-title" id="img-modal-exp"></p>
-        <button class="ds-close-btn" onclick="closeImgModal()" aria-label="Close">&times;</button>
-      </div>
-      <div class="img-modal-body">
-        <button class="ds-nav-btn" id="lb-prev" onclick="lbStep(-1)" aria-label="Previous">&#8592;</button>
-        <div class="lb-img-wrap">
-          <img id="lb-img" src="" alt="" />
-        </div>
-        <button class="ds-nav-btn" id="lb-next" onclick="lbStep(1)" aria-label="Next">&#8594;</button>
-      </div>
-      <p class="lb-caption" id="lb-caption"></p>
-    </div>
-  </div>
-
-</section>
+    </section>
 
     <!-- Publications -->
-<section id="publications" class="section">
-  <div class="content-section">
-    <div class="section-header">
-      <h2 class="section-title">Paper</h2>
-    </div>
-    
-    <div class="button-container">
-      <a href="https://arxiv.org/pdf/2511.22354" 
-        class="paper-button" 
-        target="_blank" 
-        rel="noopener">
-        Read the PDF
-      </a>
-    </div>
-    <div class="bibtex-section">
-      <h3 class="bibtex-title">Citation</h3>
-      <div class="code-block">
-        <pre><code>@article{borate2025llm,
+    <section id="publications" class="section">
+      <div class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">Paper</h2>
+        </div>
+
+        <div class="button-container">
+          <a href="https://arxiv.org/pdf/2511.22354"
+            class="paper-button"
+            target="_blank"
+            rel="noopener">
+            Read the PDF
+          </a>
+        </div>
+
+        <div class="bibtex-section">
+          <h3 class="bibtex-title">Citation</h3>
+          <div class="code-block">
+            <pre><code>@article{borate2025llm,
   title={LLM-Based Generalizable Hierarchical Task Planning and Execution for Heterogeneous Robot Teams with Event-Driven Replanning},
   author={Borate, Suraj and Pardeshi, Vipul and Vadali, Madhu and others},
   journal={arXiv preprint arXiv:2511.22354},
   year={2025}
 }</code></pre>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CoMuRoS-Nav -->
-<section id="comuros-nav" class="section">
-  <div class="content-section">
-    <div class="section-header">
-      <h2 class="section-title">CoMuRoS-Nav</h2>
-      <p class="section-subtitle">Explore the CoMuRoS navigation framework and related resources</p>
-    </div>
-    <div class="button-container">
-      <a href="https://comuros-nav.github.io" 
-        class="nav-project-button" 
-        target="_blank" 
-        rel="noopener">
-        Visit CoMuRoS-Nav
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Authors -->
-<section id="authors" class="section">
-  <div class="content-section">
-    <div class="section-header">
-      <h2 class="section-title">Authors</h2>
-      <p class="section-subtitle">The team behind CoMuRoS</p>
-    </div>
-    <div class="authors-grid">
-
-      <div class="author-card">
-        <div class="author-photo-wrapper">
-          <img src="./assets/images/team/suraj.png" alt="Suraj Borate" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="author-avatar-fallback">SB</div>
-        </div>
-        <h3>Suraj Borate</h3>
-        <p class="author-role">PhD Student</p>
-        <p class="author-dept">IIT Gandhinagar</p>
-        <div class="author-links">
-          <a href="https://linkedin.com/in/suraj-borate-72576323a" class="author-link linkedin" target="_blank">LinkedIn</a>
-          <a href="https://github.com/SurajBorate" class="author-link github" target="_blank">GitHub</a>
-          <a href="https://scholar.google.com/citations?user=Sn-GirkAAAAJ&hl=en&oi=ao" class="author-link scholar" target="_blank">Scholar</a>
-          <!-- <a href="https://surajborate.com" class="author-link website" target="_blank">Website</a> -->
-        </div>
-        <div class="author-email-display" onclick="copyAuthorEmail(this)" title="Click to copy">
-          <span>surajb@iitgn.ac.in</span>
-          <button class="email-copy-mini">Copy</button>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="author-card">
-        <div class="author-photo-wrapper">
-          <img src="./assets/images/team/bhavish.png" alt="Bhavish Rai B" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="author-avatar-fallback">BR</div>
+    <!-- CoMuRoS-Nav — alternating background -->
+    <section id="comuros-nav" class="section section-alt">
+      <div class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">CoMuRoS-Nav</h2>
+          <p class="section-subtitle">Explore the CoMuRoS navigation framework and related resources</p>
         </div>
-        <h3>Bhavish Rai B</h3>
-        <p class="author-role">Intern</p>
-        <p class="author-dept">IIT Gandhinagar</p>
-        <div class="author-links">
-          <a href="https://linkedin.com/in/bhavish-rai-b-761421231" class="author-link linkedin" target="_blank">LinkedIn</a>
-          <a href="https://github.com/braib" class="author-link github" target="_blank">GitHub</a>
-          <!-- <a href="https://scholar.google.com/citations?user=XXXX" class="author-link scholar" target="_blank">Scholar</a> -->
-          <a href="https://braib.github.io" class="author-link website" target="_blank">Website</a>
-        </div>
-        <div class="author-email-display" onclick="copyAuthorEmail(this)" title="Click to copy">
-          <span>bhavishraib@gmail.com</span>
-          <button class="email-copy-mini">Copy</button>
+        <div class="button-container">
+          <a href="https://comuros-nav.github.io"
+            class="nav-project-button"
+            target="_blank"
+            rel="noopener">
+            Visit CoMuRoS-Nav
+          </a>
         </div>
       </div>
+    </section>
 
-      <div class="author-card">
-        <div class="author-photo-wrapper">
-          <img src="./assets/images/team/vipul.png" alt="Vipul Pardeshi" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="author-avatar-fallback">VP</div>
+    <!-- Authors -->
+    <section id="authors" class="section">
+      <div class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">Authors</h2>
+          <p class="section-subtitle">The team behind CoMuRoS</p>
         </div>
-        <h3>Vipul Pardeshi</h3>
-        <p class="author-role">Intern</p>
-        <p class="author-dept">IIT Gandhinagar</p>
-        <div class="author-links">
-          <a href="https://www.linkedin.com/in/vipul-pardeshi-028b7a22a/" class="author-link linkedin" target="_blank">LinkedIn</a>
-          <a href="https://github.com/Vipsy-123/" class="author-link github" target="_blank">GitHub</a>
-          <!-- <a href="https://scholar.google.com/citations?user=XXXX" class="author-link scholar" target="_blank">Scholar</a> -->
-          <!-- <a href="https://vipulpardeshi.com" class="author-link website" target="_blank">Website</a> -->
-        </div>
-        <div class="author-email-display" onclick="copyAuthorEmail(this)" title="Click to copy">
-          <span>pardeshivipul18@gmail.com</span>
-          <button class="email-copy-mini">Copy</button>
+        <div class="authors-grid">
+
+          <div class="author-card">
+            <div class="author-photo-wrapper">
+              <img src="./assets/images/team/suraj.png" alt="Suraj Borate" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="author-avatar-fallback">SB</div>
+            </div>
+            <h3>Suraj Borate</h3>
+            <p class="author-role">PhD Student</p>
+            <p class="author-dept">IIT Gandhinagar</p>
+            <div class="author-links">
+              <a href="https://linkedin.com/in/suraj-borate-72576323a" class="author-link linkedin" target="_blank">LinkedIn</a>
+              <a href="https://github.com/SurajBorate" class="author-link github" target="_blank">GitHub</a>
+              <a href="https://scholar.google.com/citations?user=Sn-GirkAAAAJ&hl=en&oi=ao" class="author-link scholar" target="_blank">Scholar</a>
+            </div>
+            <div class="author-email-display" onclick="copyAuthorEmail(this)" title="Click to copy">
+              <span>surajb@iitgn.ac.in</span>
+              <button class="email-copy-mini">Copy</button>
+            </div>
+          </div>
+
+          <div class="author-card">
+            <div class="author-photo-wrapper">
+              <img src="./assets/images/team/bhavish.png" alt="Bhavish Rai B" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="author-avatar-fallback">BR</div>
+            </div>
+            <h3>Bhavish Rai B</h3>
+            <p class="author-role">Intern</p>
+            <p class="author-dept">IIT Gandhinagar</p>
+            <div class="author-links">
+              <a href="https://linkedin.com/in/bhavish-rai-b-761421231" class="author-link linkedin" target="_blank">LinkedIn</a>
+              <a href="https://github.com/braib" class="author-link github" target="_blank">GitHub</a>
+              <a href="https://braib.github.io" class="author-link website" target="_blank">Website</a>
+            </div>
+            <div class="author-email-display" onclick="copyAuthorEmail(this)" title="Click to copy">
+              <span>bhavishraib@gmail.com</span>
+              <button class="email-copy-mini">Copy</button>
+            </div>
+          </div>
+
+          <div class="author-card">
+            <div class="author-photo-wrapper">
+              <img src="./assets/images/team/vipul.png" alt="Vipul Pardeshi" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="author-avatar-fallback">VP</div>
+            </div>
+            <h3>Vipul Pardeshi</h3>
+            <p class="author-role">Intern</p>
+            <p class="author-dept">IIT Gandhinagar</p>
+            <div class="author-links">
+              <a href="https://www.linkedin.com/in/vipul-pardeshi-028b7a22a/" class="author-link linkedin" target="_blank">LinkedIn</a>
+              <a href="https://github.com/Vipsy-123/" class="author-link github" target="_blank">GitHub</a>
+            </div>
+            <div class="author-email-display" onclick="copyAuthorEmail(this)" title="Click to copy">
+              <span>pardeshivipul18@gmail.com</span>
+              <button class="email-copy-mini">Copy</button>
+            </div>
+          </div>
+
+          <div class="author-card">
+            <div class="author-photo-wrapper">
+              <img src="./assets/images/team/madhu.jpg" alt="Madhu Vadali" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="author-avatar-fallback">MV</div>
+            </div>
+            <h3>Madhu Vadali</h3>
+            <p class="author-role">Professor</p>
+            <p class="author-dept">IIT Gandhinagar</p>
+            <div class="author-links">
+              <a href="https://linkedin.com/in/madhuvadali" class="author-link linkedin" target="_blank">LinkedIn</a>
+              <a href="https://scholar.google.com/citations?user=kxNm_3sAAAAJ&hl=en" class="author-link scholar" target="_blank">Scholar</a>
+              <a href="https://iitgn.ac.in/faculty/me/9-madhu" class="author-link website" target="_blank">Website</a>
+            </div>
+            <div class="author-email-display" onclick="copyAuthorEmail(this)" title="Click to copy">
+              <span>madhu.vadali@iitgn.ac.in</span>
+              <button class="email-copy-mini">Copy</button>
+            </div>
+          </div>
+
         </div>
       </div>
+    </section>
 
-      <div class="author-card">
-        <div class="author-photo-wrapper">
-          <img src="./assets/images/team/madhu.jpg" alt="Madhu Vadali" class="author-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="author-avatar-fallback">MV</div>
+    <!-- Contact — alternating background -->
+    <section id="contact" class="section section-alt">
+      <div class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">Contact</h2>
+          <p class="section-subtitle">Have questions about CoMuRoS? We'd love to hear from you</p>
         </div>
-        <h3>Madhu Vadali</h3>
-        <p class="author-role">Professor</p>
-        <p class="author-dept">IIT Gandhinagar</p>
-        <div class="author-links">
-          <a href="https://linkedin.com/in/madhuvadali" class="author-link linkedin" target="_blank">LinkedIn</a>
-          <!-- <a href="https://github.com/madhuvadali" class="author-link github" target="_blank">GitHub</a> -->
-          <a href="https://scholar.google.com/citations?user=kxNm_3sAAAAJ&hl=en" class="author-link scholar" target="_blank">Scholar</a>
-          <a href="https://iitgn.ac.in/faculty/me/9-madhu" class="author-link website" target="_blank">Website</a>
-        </div>
-        <div class="author-email-display" onclick="copyAuthorEmail(this)" title="Click to copy">
-          <span>madhu.vadali@iitgn.ac.in</span>
-          <button class="email-copy-mini">Copy</button>
+        <div class="contact-single">
+          <div class="contact-card">
+            <h3>CoMuRoS</h3>
+            <p>For research inquiries and collaborations</p>
+            <div class="email-copy-box" onclick="copyEmail(this)" title="Click to copy">
+              <span class="email-text">comuros.research@gmail.com</span>
+              <button class="copy-icon-btn">⎘ Copy</button>
+            </div>
+            <span class="copy-feedback">✓ Copied to clipboard!</span>
+          </div>
         </div>
       </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="section">
-  <div class="content-section">
-    <div class="section-header">
-      <h2 class="section-title">Contact</h2>
-      <p class="section-subtitle">Have questions about CoMuRoS? We'd love to hear from you</p>
-    </div>
-    <div class="contact-single">
-      <div class="contact-card">
-        <!-- <div class="contact-icon">📧</div> -->
-        <h3>CoMuRoS</h3>
-        <p>For research inquiries and collaborations</p>
-        <div class="email-copy-box" onclick="copyEmail(this)" title="Click to copy">
-          <span class="email-text">comuros.research@gmail.com</span>
-          <button class="copy-icon-btn">⎘ Copy</button>
-        </div>
-        <span class="copy-feedback">✓ Copied to clipboard!</span>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
