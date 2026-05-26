@@ -439,7 +439,7 @@ ros2 launch chatty chat_system.launch.py</code></pre>
 
 <!-- Data -->
 <section id="dataset" class="section">
-  <div class="content-section">
+  <div class="content-section" style="padding: 3rem 2.5rem;">
     <div class="section-header">
       <h2 class="section-title">Data</h2>
       <p class="section-subtitle">Robot configuration files and experiment GUI screenshots</p>
@@ -449,52 +449,45 @@ ros2 launch chatty chat_system.launch.py</code></pre>
     <div class="data-subsection">
       <div class="data-sub-header">
         <div>
-          <h3 class="data-sub-title">
-            <i class="ti ti-file-code" aria-hidden="true"></i>
-            Config Files
-          </h3>
+          <h3 class="data-sub-title">Config Files</h3>
           <p class="data-sub-desc">Robot configuration files for each experiment. Click a card to read the full JSON.</p>
         </div>
-        <div class="scroller-arrows" id="cfg-arrows">
-          <button class="scroll-arrow" onclick="scrollTrack('cfg-track', -1)" aria-label="Scroll left"><i class="ti ti-chevron-left"></i></button>
-          <button class="scroll-arrow" onclick="scrollTrack('cfg-track', 1)"  aria-label="Scroll right"><i class="ti ti-chevron-right"></i></button>
-        </div>
       </div>
-
       <div class="cards-track-wrap">
         <div class="cards-track" id="cfg-track">
           <!-- populated by JS -->
         </div>
       </div>
+      <!-- Nav arrows BELOW the track -->
+      <div class="track-nav">
+        <button class="track-nav-btn" onclick="scrollTrack('cfg-track', -1)" aria-label="Scroll left">&#8592; Prev</button>
+        <button class="track-nav-btn" onclick="scrollTrack('cfg-track', 1)"  aria-label="Scroll right">Next &#8594;</button>
+      </div>
     </div>
 
-    <!-- Divider -->
     <div class="data-divider"></div>
 
     <!-- Sub-section: Chat GUI Images -->
     <div class="data-subsection">
       <div class="data-sub-header">
         <div>
-          <h3 class="data-sub-title">
-            <i class="ti ti-photo" aria-hidden="true"></i>
-            Chat GUI Screenshots
-          </h3>
+          <h3 class="data-sub-title">Chat GUI Screenshots</h3>
           <p class="data-sub-desc">Interface screenshots from real experiment runs. Click to view full size.</p>
         </div>
-        <div class="scroller-arrows" id="gui-arrows">
-          <button class="scroll-arrow" onclick="scrollTrack('gui-track', -1)" aria-label="Scroll left"><i class="ti ti-chevron-left"></i></button>
-          <button class="scroll-arrow" onclick="scrollTrack('gui-track', 1)"  aria-label="Scroll right"><i class="ti ti-chevron-right"></i></button>
-        </div>
       </div>
-
       <div class="cards-track-wrap">
         <div class="cards-track" id="gui-track">
           <!-- populated by JS -->
         </div>
       </div>
+      <!-- Nav arrows BELOW the track -->
+      <div class="track-nav">
+        <button class="track-nav-btn" onclick="scrollTrack('gui-track', -1)" aria-label="Scroll left">&#8592; Prev</button>
+        <button class="track-nav-btn" onclick="scrollTrack('gui-track', 1)"  aria-label="Scroll right">Next &#8594;</button>
+      </div>
     </div>
 
-    <!-- Keep original dataset button -->
+    <!-- Google Drive button -->
     <div class="data-divider"></div>
     <div class="button-container" style="padding-top: 2rem;">
       <a href="https://drive.google.com/drive/folders/1i6ZupC1dC3AuS4vKeeRPAZpVnoHiibIK?usp=drive_link"
@@ -504,7 +497,6 @@ ros2 launch chatty chat_system.launch.py</code></pre>
         Google Drive
       </a>
     </div>
-
   </div>
 
   <!-- JSON Modal -->
@@ -515,7 +507,7 @@ ros2 launch chatty chat_system.launch.py</code></pre>
           <p class="ds-modal-title" id="json-modal-exp"></p>
           <p class="ds-modal-sub"   id="json-modal-file"></p>
         </div>
-        <button class="ds-modal-close" onclick="closeJsonModal()" aria-label="Close"><i class="ti ti-x"></i></button>
+        <button class="ds-close-btn" onclick="closeJsonModal()" aria-label="Close">&times;</button>
       </div>
       <pre class="ds-json-body" id="json-modal-body"></pre>
     </div>
@@ -526,14 +518,14 @@ ros2 launch chatty chat_system.launch.py</code></pre>
     <div class="ds-modal img-ds-modal" onclick="event.stopPropagation()">
       <div class="ds-modal-header">
         <p class="ds-modal-title" id="img-modal-exp"></p>
-        <button class="ds-modal-close" onclick="closeImgModal()" aria-label="Close"><i class="ti ti-x"></i></button>
+        <button class="ds-close-btn" onclick="closeImgModal()" aria-label="Close">&times;</button>
       </div>
       <div class="img-modal-body">
-        <button class="lb-arr lb-arr-l" id="lb-prev" onclick="lbStep(-1)" aria-label="Previous"><i class="ti ti-chevron-left"></i></button>
+        <button class="ds-nav-btn" id="lb-prev" onclick="lbStep(-1)" aria-label="Previous">&#8592;</button>
         <div class="lb-img-wrap">
           <img id="lb-img" src="" alt="" />
         </div>
-        <button class="lb-arr lb-arr-r" id="lb-next" onclick="lbStep(1)"  aria-label="Next"><i class="ti ti-chevron-right"></i></button>
+        <button class="ds-nav-btn" id="lb-next" onclick="lbStep(1)" aria-label="Next">&#8594;</button>
       </div>
       <p class="lb-caption" id="lb-caption"></p>
     </div>
@@ -709,9 +701,9 @@ ros2 launch chatty chat_system.launch.py</code></pre>
         <a href="https://github.com/CoMuRoS/CoMuRoS.git" target="_blank">Repository</a>
         <a href="#dataset">Dataset</a>
         <a href="#publications">Paper</a>
-        <a href="https://comuros-nav.github.io" target="_blank">CoMuRoS Project</a>
+        <a href="https://comuros-nav.github.io" target="_blank">CoMuRoS-Nav Project</a>
       </div>
-      <p>&copy; 2026 CoMuRoS-Nav Project.</p>
+      <p>&copy; 2026 CoMuRoS Project.</p>
     </footer>
 
     <script src="js/script.js"></script>
